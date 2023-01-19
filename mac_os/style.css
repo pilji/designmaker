@@ -9,6 +9,7 @@ body {
 ::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -123,5 +124,5 @@ body {
 
 .bloger_bn {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 150px;
 }

@@ -1,6 +1,5 @@
 function currentTime() {
   const date = new Date(); 
-  let yy = date.getFullYear();
   let mo = date.getMonth() + 1;
   let dd = date.getDate();
   let hh = date.getHours();
@@ -21,9 +20,9 @@ function currentTime() {
   mm = (mm < 10) ? "0" + mm : mm;
   ss = (ss < 10) ? "0" + ss : ss;
 
-  const time = mo + "월 " + dd + "일 " + hh + ":" + mm + " " + session;
+  const clock = mo + "월 " + dd + "일 " + hh + ":" + mm + " " + session;
 
-  document.getElementById("clock").innerText = time; 
+  document.getElementById("clock").innerText = clock; 
 
   setTimeout(() => currentTime(), 1000);
 }
