@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<skin>
+  <information>
+    <name>mac_os</name>
+    <version>1.1</version>
+    <description>
+      <![CDATA[디자인메이커에서 개발한 스킨입니다.]]>
+    </description>
+    <license>
+      <![CDATA[본 스킨의 저작권은 디자인메이커(vlo)에 귀속되며 수정 및 배포가 불가능합니다.]]>
+    </license>
+  </information>
+  <author>
+    <name>vlo</name>
+    <homepage>http://designmaker.tistory.com</homepage>
+    <email>liviang@kakao.com</email>
+  </author>
+  <default>
+    <recentEntries>5</recentEntries>
+    <recentComments>5</recentComments>
+    <recentTrackbacks>5</recentTrackbacks>
+    <itemsOnGuestbook>10</itemsOnGuestbook>
+    <tagsInCloud>30</tagsInCloud>
+    <sortInCloud>3</sortInCloud>
+    <expandComment>0</expandComment>
+    <expandTrackback>0</expandTrackback>
+    <lengthOfRecentNotice>25</lengthOfRecentNotice>
+    <lengthOfRecentEntry>27</lengthOfRecentEntry>
+    <lengthOfRecentComment>30</lengthOfRecentComment>
+    <lengthOfRecentTrackback>30</lengthOfRecentTrackback>
+    <lengthOfLink>30</lengthOfLink>
+    <showListOnCategory>1</showListOnCategory>
+    <showListOnArchive>1</showListOnArchive>
+    <commentMessage>
+      <none>댓글이 없습니다.</none>
+      <single>댓글 &lt;span class="cnt"&gt;하나&lt;/span&gt; 달렸습니다.</single>
+    </commentMessage>
+    <trackbackMessage>
+      <none>받은 트랙백이 없고</none>
+      <single>트랙백이 &lt;span class="cnt"&gt;하나&lt;/span&gt;이고</single>
+    </trackbackMessage>
+    <tree>
+      <color>000000</color>
+      <bgColor>ffffff</bgColor>
+      <activeColor>000000</activeColor>
+      <activeBgColor>eeeeee</activeBgColor>
+      <labelLength>27</labelLength>
+      <showValue>1</showValue>
+    </tree>
+    <contentWidth>500</contentWidth>
+  </default>
+
+  <variables>
+    <variablegroup>
+      <variable>
+        <name>scroll-load</name>
+        <label>
+          <![CDATA[ 무한스크롤 ]]>
+        </label>
+        <type>BOOL</type>
+        <option />
+        <default>true</default>
+        <description>
+          <![CDATA[ 글 리스트 끝에 다다르면 다음 페이지를 불러옵니다. ]]>
+        </description>
+      </variable>
+    </variablegroup>
+    <variablegroup name="디자인">
+      <variable>
+        <name>point-color</name>
+        <label>
+          <![CDATA[ 포인트 컬러 ]]>
+        </label>
+        <type>COLOR</type>
+        <option />
+        <default><![CDATA[#3DD9BD]]></default>
+        <description>
+          <![CDATA[MAC_OS 스킨 포인트 컬러를 지정합니다.]]>
+        </description>
+      </variable>
+      <variable>
+        <name>bg-color-1</name>
+        <label>
+          <![CDATA[ 배경그라디언트S ]]>
+        </label>
+        <type>COLOR</type>
+        <option />
+        <default><![CDATA[#33799d]]></default>
+        <description>
+          <![CDATA[MAC_OS 배경 그라디언트를 지정합니다.]]>
+        </description>
+      </variable>
+      <variable>
+        <name>bg-color-2</name>
+        <label>
+          <![CDATA[ 배경그라디언트E ]]>
+        </label>
+        <type>COLOR</type>
+        <option />
+        <default><![CDATA[#33799d]]></default>
+        <description>
+          <![CDATA[MAC_OS 배경 그라디언트를 지정합니다.]]>
+        </description>
+      </variable>
+    </variablegroup>
+    <variablegroup name="카테고리 이미지">
+      <variable>
+        <name>category-img-1</name>
+        <label>
+          <![CDATA[ 카테고리 이미지 ]]>
+        </label>
+        <type>IMAGE</type>
+        <option />
+        <default>
+        <![CDATA[ ./images/folder.gif ]]>
+      </default>
+      </variable>
+      <variable>
+        <name>category-img-2</name>
+        <label>
+          <![CDATA[ 카테고리 이미지 ]]>
+        </label>
+        <type>IMAGE</type>
+        <option />
+        <default>
+        <![CDATA[ ./images/folder.gif ]]>
+      </default>
+      </variable>
+      <variable>
+        <name>category-img-3</name>
+        <label>
+          <![CDATA[ 카테고리 이미지 ]]>
+        </label>
+        <type>IMAGE</type>
+        <option />
+        <default>
+        <![CDATA[ ./images/folder.gif ]]>
+      </default>
+      </variable>
+      <variable>
+        <name>category-img-4</name>
+        <label>
+          <![CDATA[ 카테고리 이미지 ]]>
+        </label>
+        <type>IMAGE</type>
+        <option />
+        <default>
+        <![CDATA[ ./images/folder.gif ]]>
+      </default>
+      </variable>
+      <variable>
+        <name>category-img-5</name>
+        <label>
+          <![CDATA[ 카테고리 이미지 ]]>
+        </label>
+        <type>IMAGE</type>
+        <option />
+        <default>
+        <![CDATA[ ./images/folder.gif ]]>
+      </default>
+      </variable>
+      <variable>
+        <name>category-img-6</name>
+        <label>
+          <![CDATA[ 카테고리 이미지 ]]>
+        </label>
+        <type>IMAGE</type>
+        <option />
+        <default>
+        <![CDATA[ ./images/folder.gif ]]>
+      </default>
+      </variable>
+      <variable>
+        <name>category-img-7</name>
+        <label>
+          <![CDATA[ 카테고리 이미지 ]]>
+        </label>
+        <type>IMAGE</type>
+        <option />
+        <default>
+        <![CDATA[ ./images/folder.gif ]]>
+      </default>
+      </variable>
+      <variable>
+        <name>category-img-8</name>
+        <label>
+          <![CDATA[ 카테고리 이미지 ]]>
+        </label>
+        <type>IMAGE</type>
+        <option />
+        <default>
+        <![CDATA[ ./images/folder.gif ]]>
+      </default>
+      </variable>
+      <variable>
+        <name>category-img-9</name>
+        <label>
+          <![CDATA[ 카테고리 이미지 ]]>
+        </label>
+        <type>IMAGE</type>
+        <option />
+        <default>
+        <![CDATA[ ./images/folder.gif ]]>
+      </default>
+      </variable>
+      <variable>
+        <name>category-img-10</name>
+        <label>
+          <![CDATA[ 카테고리 이미지 ]]>
+        </label>
+        <type>IMAGE</type>
+        <option />
+        <default>
+        <![CDATA[ ./images/folder.gif ]]>
+      </default>
+      </variable>
+      <variable>
+        <name>category-img-11</name>
+        <label>
+          <![CDATA[ 카테고리 이미지 ]]>
+        </label>
+        <type>IMAGE</type>
+        <option />
+        <default>
+        <![CDATA[ ./images/folder.gif ]]>
+      </default>
+      </variable>
+      <variable>
+        <name>category-img-12</name>
+        <label>
+          <![CDATA[ 카테고리 이미지 ]]>
+        </label>
+        <type>IMAGE</type>
+        <option />
+        <default>
+        <![CDATA[ ./images/folder.gif ]]>
+      </default>
+      </variable>
+      <variable>
+        <name>category-img-13</name>
+        <label>
+          <![CDATA[ 카테고리 이미지 ]]>
+        </label>
+        <type>IMAGE</type>
+        <option />
+        <default>
+        <![CDATA[ ./images/folder.gif ]]>
+      </default>
+      </variable>
+      <variable>
+        <name>category-img-14</name>
+        <label>
+          <![CDATA[ 카테고리 이미지 ]]>
+        </label>
+        <type>IMAGE</type>
+        <option />
+        <default>
+        <![CDATA[ ./images/folder.gif ]]>
+      </default>
+      </variable>
+      <variable>
+        <name>category-img-15</name>
+        <label>
+          <![CDATA[ 카테고리 이미지 ]]>
+        </label>
+        <type>IMAGE</type>
+        <option />
+        <default>
+        <![CDATA[ ./images/folder.gif ]]>
+      </default>
+      </variable>
+      <variable>
+        <name>category-img-16</name>
+        <label>
+          <![CDATA[ 카테고리 이미지 ]]>
+        </label>
+        <type>IMAGE</type>
+        <option />
+        <default>
+        <![CDATA[ ./images/folder.gif ]]>
+      </default>
+      </variable>
+      <variable>
+        <name>category-img-17</name>
+        <label>
+          <![CDATA[ 카테고리 이미지 ]]>
+        </label>
+        <type>IMAGE</type>
+        <option />
+        <default>
+        <![CDATA[ ./images/folder.gif ]]>
+      </default>
+      </variable>
+      <variable>
+        <name>category-img-18</name>
+        <label>
+          <![CDATA[ 카테고리 이미지 ]]>
+        </label>
+        <type>IMAGE</type>
+        <option />
+        <default>
+        <![CDATA[ ./images/folder.gif ]]>
+      </default>
+      </variable>
+      <variable>
+        <name>category-img-19</name>
+        <label>
+          <![CDATA[ 카테고리 이미지 ]]>
+        </label>
+        <type>IMAGE</type>
+        <option />
+        <default>
+        <![CDATA[ ./images/folder.gif ]]>
+      </default>
+      </variable>
+      <variable>
+        <name>category-img-20</name>
+        <label>
+          <![CDATA[ 카테고리 이미지 ]]>
+        </label>
+        <type>IMAGE</type>
+        <option />
+        <default>
+        <![CDATA[ ./images/folder.gif ]]>
+      </default>
+      </variable>
+    </variablegroup>
+  </variables>
+</skin>

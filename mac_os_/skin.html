@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/64b7068c33.js" crossorigin="anonymous"></script>
+  <!-- animate -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <!-- font -->
+  <link rel="stylesheet" href="static/css/font.css">
+  <!-- common -->
+  <script src="static/script/water.js"></script>
+  <script src="static/uikit/uikit.min.js"></script>
+  <script src="static/uikit/uikit-icons.min.js"></script>
+  <link rel="stylesheet" href="static/uikit/uikit.min.css">
+  <link rel="stylesheet" href="static/css/header.css">
+  <link rel="stylesheet" href="static/css/footer.css">
+  <link rel="stylesheet" href="style.css">
+
+  <title>[##_page_title_##]</title>
+</head>
+
+<body>
+  <header>
+    <div class="navbar">
+      <ul class="left">
+        <li>File
+          <div class="category">
+            <h3>카테고리</h3>
+            [##_category_list_##]
+          </div>
+        </li>
+        <li>Edit</li>
+        <li>Hotkey</li>
+        <li>Help</li>
+      </ul>
+      <ul class="right">
+        <li class="battery">
+          <span class="battery__text">100%</span>
+          <div class="battery__container">
+            <div class="battery__progress battery__high" style="width: 100%;">
+            </div>
+          </div>
+        </li>
+        <li id="ymd" class="hidden"></li>
+        <li id="clock"></li>
+        <script>
+          function currentTime() {
+            const date = new Date();
+            let hh = date.getHours();
+            let mm = date.getMinutes();
+            let session = "AM";
+
+            if (hh == 0) {
+              hh = 12;
+            }
+
+            if (hh > 12) {
+              hh = hh - 12;
+              session = "PM";
+            }
+
+            hh = (hh < 10) ? "0" + hh : hh;
+            mm = (mm < 10) ? "0" + mm : mm;
+
+            const clock = hh + ":" + mm + " " + session;
+
+            document.getElementById("clock").innerText = clock;
+
+            setTimeout(() => currentTime(), 1000);
+          }
+          currentTime();
+          function ymd() {
+            const date = new Date();
+            let yy = date.getFullYear();
+            let mm = date.getMonth() + 1;
+            let dd = date.getDate();
+            mm = (mm < 10) ? "0" + mm : mm;
+
+            const ymd = yy + " · " + mm + " · " + dd;
+
+            document.getElementById("ymd").innerText = ymd;
+          }
+          ymd();
+        </script>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <s_sidebar_element>
+      [##_category_list_##]
+    </s_sidebar_element>
+  </main>
+  <footer>
+    <div class="dock">
+      <button class="icon bloger">
+        <img src="images/dock/finder.png" alt="Finder Logo" />
+      </button>
+      <button class="icon cover">
+        <img src="images/dock/launchpad.png" alt="Launchpad Logo" />
+      </button>
+      <button class="icon recentlyAtc">
+        <img src="images/dock/reminders.png" alt="Reminders Logo" />
+      </button>
+      <button class="icon">
+        <img src="images/dock/pages.png" alt="Pages Logo" />
+      </button>
+      <button class="icon">
+        <img src="images/dock/message.png" alt="Messages Logo" class="hidden" />
+      </button>
+      <button class="icon">
+        <img src="images/dock/music.png" alt="Music Logo" class="hidden" />
+      </button>
+      <button class="icon">
+        <img src="images/dock/calculator.png" alt="Calculator Logo" class="hidden" />
+      </button>
+      <button class="icon">
+        <img src="images/dock/siri.png" alt="Siri Logo" />
+      </button>
+      <button class="icon">
+        <img src="images/dock/preferences.png" alt="Preferences Logo" />
+      </button>
+    </div>
+  </footer>
+</body>
+<script src="static/script/script.js"></script>
+
+</html>
