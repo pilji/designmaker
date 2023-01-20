@@ -1,0 +1,151 @@
+
+<style>
+  /*footer  dock start */
+footer .dock {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  padding: 0.2rem 0.5rem 0 0.5rem;
+  bottom: 3%;
+  left: 50%;
+  height: 65px;
+  transform: translateX(-50%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.555);
+  z-index: 10;
+  width: max-content;
+}
+
+@media screen and (max-width: 900px) {
+  footer .dock {
+    border-radius: 20px;
+  }
+}
+
+footer .dock .point {
+  width: 6px;
+  height: 6px;
+  margin: 0;
+  background: #f08080;
+  border-radius: 50%;
+  display: none;
+  animation: top-to-bottom 0.3s;
+  transition: 0.3s;
+}
+
+footer .dock .column {
+  width: 1px;
+  height: 45px;
+  margin: 0 4px;
+  background: var(--color-white-400);
+}
+
+footer .dock .icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: none;
+  border: none;
+  outline: none;
+  transition: all 0.3s;
+  transform: translate3d(0px, 0%, 0px);
+  -webkit-tap-highlight-color: transparent;
+}
+
+footer .dock .icon::after {
+  font-size: 15px;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.39);
+  top: -25%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  width: 95px;
+  height: 25px;
+  padding: 4px 3px 15px;
+  border-radius: 4px;
+  font-family: "lexend", sans-serif;
+  font-weight: 700;
+  clip-path: polygon(100% 0%,
+      100% 0%,
+      0% 0%,
+      0% 0%,
+      0% 0%,
+      0% 0%,
+      0% 0%,
+      0% 0%,
+      0% 80%,
+      43% 80%,
+      50% 101%,
+      57% 80%,
+      100% 80%,
+      100% 0%);
+}
+
+footer .dock .icon:nth-child(1):hover::after {
+  content: "블로거 소개";
+}
+
+footer .dock .icon:nth-child(2):hover::after {
+  content: "카테고리";
+}
+
+footer .dock .icon:nth-child(3):hover::after {
+  content: "최근 글";
+}
+
+footer .dock .icon:nth-child(4):hover::after {
+  content: "방명록";
+}
+
+footer .dock .icon:nth-child(5):hover::after {
+  content: "최근 댓글";
+}
+
+footer .dock .icon:nth-child(6):hover::after {
+  content: "음악";
+}
+
+footer .dock .icon:nth-child(7):hover::after {
+  content: "계산기";
+}
+
+footer .dock .icon:nth-child(8):hover::after {
+  content: "검색";
+}
+
+footer .dock .icon:nth-child(9):hover::after {
+  content: "옵션";
+}
+
+footer .dock .icon img {
+  width: 3.6rem;
+  transition: 0.2s;
+  transform: translateY(-2.5px);
+}
+
+footer .dock .icon:hover img {
+  margin: 0 0 40px 0;
+  width: 6.1rem;
+}
+
+footer .dock .icon:hover+.icon img {
+  width: 4.6rem;
+  margin: 0 0 25px 0;
+}
+
+footer .dock .icon img:active {
+  filter: brightness(0.6) drop-shadow(0 0 10px #2c2c2c);
+}
+
+@media screen and (max-width: 900px) {
+  footer .dock  .hidden {
+    display: none;
+  }
+}
+</style>
