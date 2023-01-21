@@ -15,131 +15,557 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
   <!-- common -->
-  <link rel="stylesheet" href="style.css">
 
   <title>[##_page_title_##]</title>
 </head>
 <script>
   $(document).ready(function () {
-    $('#font').load("static/font/font.html");
+    $('#font').load("static/css/font.html");
     $('#waterjs').load("static/script/water.html");
     $('#script').load("static/script/script.html");
     $('#uikitjs').load("static/uikit/uikitjs.min.html");
     $('#uikit-icons').load("static/uikit/uikit-icons.min.html");
     $('#uikitcss').load("static/uikit/uikitcss.min.html");
     $('#header').load("static/css/header.html");
+    $('#main').load("static/css/main.html");
+    $('#section').load("static/css/section.html");
     $('#footer').load("static/css/footer.html");
   });
 </script>
-<body>
-  <div id="font"></div>
-  <div id="waterjs"></div>
-  <div id="uikitjs"></div>
-  <div id="uikit-icons"></div>
-  <div id="uikitcss"></div>
-  <div id="header"></div>
-  <div id="footer"></div>
-  <header>
-    <div class="navbar">
-      <ul class="left">
-        <li>File
-          <div class="category">
-            <h3>카테고리</h3>
-            [##_category_list_##]
+<style>
+  :root {
+    --vlo-color: #0f0f0f;
+    --vlo-white: rgba(255, 255, 255);
+    --vlo-bg-white: rgba(255, 255, 255);
+    --vlo-blur-white-1: rgba(255, 255, 255, 0.4);
+    --vlo-blur-white-2: rgba(255, 255, 255, 0.5);
+    --vlo-blur-white-3: rgba(255, 255, 255, 0.6);
+    --vlo-blur-white-4: rgba(255, 255, 255, 0.7);
+    /* --dm-bg-color: [##_var_darkcolor_##]; */
+  }
+</style>
+
+<body id='[##_body_id_##]' class="vlo">
+  <s_tag>
+    <div id="font"></div>
+    <div id="waterjs"></div>
+    <div id="uikitjs"></div>
+    <div id="uikit-icons"></div>
+    <div id="uikitcss"></div>
+    <div id="header"></div>
+    <div id="main"></div>
+    <div id="section"></div>
+    <div id="footer"></div>
+    <link rel="stylesheet" href="style.css">
+    <header>
+      <div class="navbar">
+        <ul class="left">
+          <li class="uk-inline">
+            <button>File</button>
+            <div class="category"
+              uk-dropdown="mode: click; pos: bottom-left; boundary: !.boundary; shift: false; flip: false">
+              [##_category_list_##]
+            </div>
+          </li>
+          <li>
+            <button>Edit</button>
+            <div class="blog_menu">
+              [##_blog_menu_##]
+            </div>
+          </li>
+          <li>
+            <button>Hotkey</button>
+          </li>
+          <li>
+            <button>Help</button>
+          </li>
+        </ul>
+        <ul class="right">
+          <li class="battery">
+            <span class="battery__text">100%</span>
+            <div class="battery__container">
+              <div class="battery__progress battery__high" style="width: 100%;">
+              </div>
+            </div>
+          </li>
+          <li id="ymd" class="hidden"></li>
+          <li id="clock"></li>
+          <script>
+            function currentTime() {
+              const date = new Date();
+              let hh = date.getHours();
+              let mm = date.getMinutes();
+              let session = "AM";
+
+              if (hh == 0) {
+                hh = 12;
+              }
+
+              if (hh > 12) {
+                hh = hh - 12;
+                session = "PM";
+              }
+
+              hh = (hh < 10) ? "0" + hh : hh;
+              mm = (mm < 10) ? "0" + mm : mm;
+
+              const clock = hh + ":" + mm + " " + session;
+
+              document.getElementById("clock").innerText = clock;
+
+              setTimeout(() => currentTime(), 1000);
+            }
+            currentTime();
+            function ymd() {
+              const date = new Date();
+              let yy = date.getFullYear();
+              let mm = date.getMonth() + 1;
+              let dd = date.getDate();
+              mm = (mm < 10) ? "0" + mm : mm;
+
+              const ymd = yy + " · " + mm + " · " + dd;
+
+              document.getElementById("ymd").innerText = ymd;
+            }
+            ymd();
+          </script>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <div class="wallpapers">
+        <div class="app">
+          [##_category_list_##]
+        </div>
+      </div>
+    </main>
+    <section>
+      <div class="window window-list">
+        <div class="top">
+          <div class="panel">
+            <span class="first"></span>
+            <span class="second"></span>
+            <span class="third"></span>
           </div>
-        </li>
-        <li>Edit</li>
-        <li>Hotkey</li>
-        <li>Help</li>
-      </ul>
-      <ul class="right">
-        <li class="battery">
-          <span class="battery__text">100%</span>
-          <div class="battery__container">
-            <div class="battery__progress battery__high" style="width: 100%;">
+          <div class="nav">
+            <span class="address">
+              <input type="text" value="카테고리 > 캠핑" class="address" editable="false" readonly>
+              <i class="fa fa-refresh"></i>
+            </span>
+          </div>
+          <div class="nav right">
+            <div class="section-split">
+              <span id="grid" uk-tooltip="title: 그리드; pos: bottom"><i class="fa-regular fa-image"></i></span>
+              <span id="list" uk-tooltip="title: 리스트; pos: bottom"><i class="fa-solid fa-list"></i></span>
             </div>
           </div>
-        </li>
-        <li id="ymd" class="hidden"></li>
-        <li id="clock"></li>
-        <script>
-          function currentTime() {
-            const date = new Date();
-            let hh = date.getHours();
-            let mm = date.getMinutes();
-            let session = "AM";
+        </div>
+        <div class="inside">
+          <div class="category">
+            <ul class="uk-nav-default" uk-nav>
+              [##_category_list_##]
+            </ul>
+          </div>
+          <!-- list -->
+          <div class="section" style="display:">
+            <s_list>
+              <div class="uk-child-width-1-2 uk-child-width-1-3@m section-grid animate__animated  animate__slideInDown"
+                style="padding-top: 30px;" uk-grid>
+                <div class="section-grid-item">
+                  <a href="[##_list_rep_link_##]">
+                    <div class="section-list-img">
+                      <img src="images/water.jpg" alt="">
+                    </div>
+                    <div class="section-list-title">[##_list_rep_title_##]</div>
+                  </a>
+                </div>
+              </div>
+            </s_list>
+            <s_list>
+              <div class="uk-overflow-auto section-list animate__animated animate__fadeIn">
+                <table class="uk-table uk-table-hover uk-table-middle uk-table-divider">
+                  <thead>
+                    <tr>
+                      <th class="uk-table-shrink"></th>
+                      <th class="uk-width-small">제목</th>
+                      <th class="uk-width-small">작성일</th>
+                      <th class="uk-table-shrink uk-text-nowrap">카테고리</th>
+                      <th class="uk-table-shrink uk-text-nowrap">댓글수</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <s_list_rep_thumbnail>
+                          <img class="uk-preserve-width uk-border-circle" src="images/water.jpg" width="40" height="40"
+                            alt="">
+                        </s_list_rep_thumbnail>
+                      </td>
+                      <td class="uk-text-truncate">[##_list_rep_title_##]</td>
+                      <td class="uk-text-nowrap">[##_list_rep_regdate_##]</td>
+                      <td class="uk-text-truncate">[##_list_rep_category_##].</td>
+                      <td class="uk-text-truncate">[##_list_rep_rp_cnt_##]</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </s_list>
+          </div>
+          <!-- cover -->
+          <div class="section section-cover" style="display: none;">
+            <div class="animate__animated  animate__slideInDown" style="margin-top: 20px;">
 
-            if (hh == 0) {
-              hh = 12;
-            }
+              <div style="margin-bottom: 10px;">베스트 카테고리</div>
+              <div class="folder-group" style="display: flex;">
+                <div class="folder">
+                  <div class="icon"></div>
+                  <span>
+                    Desktop
+                  </span>
+                </div>
+                <div class="folder">
+                  <div class="icon"></div>
+                  <span>
+                    Desktop
+                  </span>
+                </div>
+                <div class="folder">
+                  <div class="icon"></div>
+                  <span>
+                    Desktop
+                  </span>
+                </div>
+                <div class="folder">
+                  <div class="icon"></div>
+                  <span>
+                    Desktop
+                  </span>
+                </div>
+                <div class="folder">
+                  <div class="icon"></div>
+                  <span>
+                    Desktop
+                  </span>
+                </div>
+                <div class="folder">
+                  <div class="icon"></div>
+                  <span>
+                    Desktop
+                  </span>
+                </div>
+              </div>
+              <div style="margin: 20px 0 20px; display: block; width: 100%;">인기글</div>
+              <div class="uk-child-width-1-2 uk-child-width-1-3@m section-grid" uk-grid>
+                <div class="section-grid-item">
+                  <div class="section-list-img">
+                    <img src="images/water.jpg" alt="">
+                  </div>
+                  <div class="section-list-title">이러쿵 저러쿵</div>
+                </div>
+                <div class="section-grid-item">
+                  <div class="section-list-img">
+                    <img src="images/water.jpg" alt="">
+                  </div>
+                  <div class="section-list-title">이러쿵 저러쿵</div>
+                </div>
+                <div class="section-grid-item">
+                  <div class="section-list-img">
+                    <img src="images/water.jpg" alt="">
+                  </div>
+                  <div class="section-list-title">이러쿵 저러쿵</div>
+                </div>
+              </div>
 
-            if (hh > 12) {
-              hh = hh - 12;
-              session = "PM";
-            }
+              <div style="margin: 40px 0 0; display: block; width: 100%;">최신글</div>
+              <div class="uk-overflow-auto section-list">
+                <table class="uk-table uk-table-hover uk-table-middle uk-table-divider">
+                  <thead>
+                    <tr>
+                      <th class="uk-table-shrink"></th>
+                      <th class="uk-width-small">제목</th>
+                      <th class="uk-width-small">작성일</th>
+                      <th class="uk-table-shrink uk-text-nowrap">카테고리</th>
+                      <th class="uk-table-shrink uk-text-nowrap">댓글수</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><img class="uk-preserve-width uk-border-circle" src="images/water.jpg" width="40" height="40"
+                          alt="">
+                      </td>
+                      <td class="uk-text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod
+                        tempor.</td>
+                      <td class="uk-text-nowrap">Lorem ipsum dolor</td>
+                      <td class="uk-text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod
+                        tempor.</td>
+                      <td class="uk-text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod
+                        tempor.</td>
+                    </tr>
+                    <tr>
+                      <td><img class="uk-preserve-width uk-border-circle" src="images/water.jpg" width="40" height="40"
+                          alt="">
+                      </td>
+                      <td class="uk-table-link">
+                        <a class="uk-link-reset" href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                          eiusmod tempor.</a>
+                      </td>
+                      <td class="uk-text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod
+                        tempor.</td>
+                      <td class="uk-text-nowrap">Lorem ipsum dolor</td>
+                    </tr>
+                    <tr>
+                      <td><img class="uk-preserve-width uk-border-circle" src="images/water.jpg" width="40" height="40"
+                          alt="">
+                      </td>
+                      <td class="uk-table-link">
+                        <a class="uk-link-reset" href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                          eiusmod tempor.</a>
+                      </td>
+                      <td class="uk-text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod
+                        tempor.</td>
+                      <td class="uk-text-nowrap">Lorem ipsum dolor</td>
+                    </tr>
+                    <tr>
+                      <td><img class="uk-preserve-width uk-border-circle" src="images/water.jpg" width="40" height="40"
+                          alt="">
+                      </td>
+                      <td class="uk-table-link">
+                        <a class="uk-link-reset" href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                          eiusmod tempor.</a>
+                      </td>
+                      <td class="uk-text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod
+                        tempor.</td>
+                      <td class="uk-text-nowrap">Lorem ipsum dolor</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- description -->
+          <div class="section section-description" style="padding:0;display:none">
 
-            hh = (hh < 10) ? "0" + hh : hh;
-            mm = (mm < 10) ? "0" + mm : mm;
+            <s_article_rep>
+              <div class="area-promotion" style="height: 250px;">
+                <div class="inner-promotion">
+                  <div class="box-promotion" style="padding: 20px;">
+                    <div class="titleWrap">
+                      <h2><a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a></h2>
+                      <div class="article_category">
+                        <a href="[##_article_rep_category_link_##]">[##_article_rep_category_##]</a>
+                      </div>
+                      <div class="date">[##_article_rep_date_##]</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ocean">
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+              </div>
 
-            const clock = hh + ":" + mm + " " + session;
+              <div class="article" style="margin-top: 40px; padding: 20px">
+                [##_article_rep_desc_##]
+              </div>
+            </s_article_rep>
+            <div class="commentList">
+              <s_rp_container>
+                <ol>
+                  <s_rp_rep>
+                    <li id='[##_rp_rep_id_##]'>
+                      <div class="[##_rp_rep_class_##]">
+                        <span class="image">[##_rp_rep_logo_##]</span>
+                        <span class="name">[##_rp_rep_name_##]</span>
+                        <span class="date"> [##_rp_rep_date_##]</span>
+                        <span class="control">
+                          <a href="[##_rp_rep_link_##]" class="address">&nbsp;
+                            <span>댓글주소</span>
+                          </a>
+                          <a href="#" onclick="[##_rp_rep_onclick_delete_##]" class="modify">&nbsp;
+                            <span>수정/삭제</span>
+                          </a>
+                          <a href="#" onclick="[##_rp_rep_onclick_reply_##]" class="write">&nbsp;
+                            <span>댓글쓰기</span>
+                          </a>
+                        </span>
+                        <p>[##_rp_rep_desc_##]</p>
+                      </div>
+                      <s_rp2_container>
+                        <ul>
+                          <s_rp2_rep>
+                            <li id='[##_rp_rep_id_##]'>
+                              <div class="[##_rp_rep_class_##]">
+                                <span class="image">[##_rp_rep_logo_##]</span>
+                                <span class="name">[##_rp_rep_name_##]</span>
+                                <span class="date"> [##_rp_rep_date_##]</span>
+                                <span class="control">
+                                  <a href="[##_rp_rep_link_##]" class="address">&nbsp;
+                                    <span>댓글주소</span>
+                                  </a>
+                                  <a href="#" onclick="[##_rp_rep_onclick_delete_##]" class="modify">&nbsp;
+                                    <span>수정/삭제</span>
+                                  </a>
+                                </span>
+                                <p>[##_rp_rep_desc_##]</p>
+                              </div>
+                            </li>
+                          </s_rp2_rep>
+                        </ul>
+                      </s_rp2_container>
+                    </li>
+                  </s_rp_rep>
+                </ol>
+              </s_rp_container>
+            </div>
+          </div>
 
-            document.getElementById("clock").innerText = clock;
+          <script>
+            $(document).ready(function () {
+              $("#grid").click(function () {
+                $(".section-grid").css("display", "flex");
+                $(".section-list").css("display", "none");
+              });
+              $("#list").click(function () {
+                $(".section-list").css("display", "block");
+                $(".section-grid").css("display", "none");
+              });
+            });
 
-            setTimeout(() => currentTime(), 1000);
-          }
-          currentTime();
-          function ymd() {
-            const date = new Date();
-            let yy = date.getFullYear();
-            let mm = date.getMonth() + 1;
-            let dd = date.getDate();
-            mm = (mm < 10) ? "0" + mm : mm;
 
-            const ymd = yy + " · " + mm + " · " + dd;
 
-            document.getElementById("ymd").innerText = ymd;
-          }
-          ymd();
-        </script>
-      </ul>
-    </div>
-  </header>
-  <main>
-    <s_sidebar_element>
-      [##_category_list_##]
-    </s_sidebar_element>
-  </main>
-  <footer>
-    <div class="dock">
-      <button class="icon bloger">
-        <img src="images/dock/finder.png" alt="Finder Logo" />
-      </button>
-      <button class="icon cover">
-        <img src="images/dock/launchpad.png" alt="Launchpad Logo" />
-      </button>
-      <button class="icon recentlyAtc">
-        <img src="images/dock/reminders.png" alt="Reminders Logo" />
-      </button>
-      <button class="icon">
-        <img src="images/dock/pages.png" alt="Pages Logo" />
-      </button>
-      <button class="icon">
-        <img src="images/dock/message.png" alt="Messages Logo" class="hidden" />
-      </button>
-      <button class="icon">
-        <img src="images/dock/music.png" alt="Music Logo" class="hidden" />
-      </button>
-      <button class="icon">
-        <img src="images/dock/calculator.png" alt="Calculator Logo" class="hidden" />
-      </button>
-      <button class="icon">
-        <img src="images/dock/siri.png" alt="Siri Logo" />
-      </button>
-      <button class="icon">
-        <img src="images/dock/preferences.png" alt="Preferences Logo" />
-      </button>
-    </div>
-  </footer>
+            // window
+            $(".window")
+              .draggable({
+                cancel: ".inside,input,textarea"
+              });
+            $(".window-bloger")
+              .draggable({
+                cancel: ".inside,input,textarea"
+              });
+
+
+            $("input.address").focus(function () {
+              $(".fa-refresh").hide(500);
+              this.select();
+            }).focusout(function () {
+              $(".fa-refresh").show(500);
+            });
+
+            // ui-draggable 
+            var __dx;
+            var __dy;
+            var __scale = 0.5;
+            var __recoupLeft, __recoupTop;
+
+            $(".ui-draggable").draggable({
+              //revert: true,
+              zIndex: 100,
+              drag: function (event, ui) {
+                //resize bug fix ui drag `enter code here`
+                __dx = ui.position.left - ui.originalPosition.left;
+                __dy = ui.position.top - ui.originalPosition.top;
+                //ui.position.left = ui.originalPosition.left + ( __dx/__scale);
+                //ui.position.top = ui.originalPosition.top + ( __dy/__scale );
+                ui.position.left = ui.originalPosition.left + (__dx);
+                ui.position.top = ui.originalPosition.top + (__dy);
+                //
+                ui.position.left += __recoupLeft;
+                ui.position.top += __recoupTop;
+              },
+              start: function (event, ui) {
+                $(this).css('cursor', 'pointer');
+                //resize bug fix ui drag
+                var left = parseInt($(this).css('left'), 10);
+                left = isNaN(left) ? 0 : left;
+                var top = parseInt($(this).css('top'), 10);
+                top = isNaN(top) ? 0 : top;
+                __recoupLeft = left - ui.position.left;
+                __recoupTop = top - ui.position.top;
+              },
+              stop: function (event, ui) {
+                $(this).css('cursor', 'default');
+                //alternate to revert (don't use revert)
+                $(this).animate({
+                  left: $(this).attr('oriLeft'),
+                  top: $(this).attr('oriTop')
+                }, 1000)
+              },
+              create: function (event, ui) {
+                $(this).attr('oriLeft', $(this).css('left'));
+                $(this).attr('oriTop', $(this).css('top'));
+              }
+            })
+
+          </script>
+    </section>
+    <footer>
+      <div class="dock">
+        <button class="icon bloger">
+          <img src="images/dock/finder.png" alt="Finder Logo" />
+        </button>
+        <button class="icon cover">
+          <img src="images/dock/launchpad.png" alt="Launchpad Logo" />
+        </button>
+        <button class="icon recentlyAtc">
+          <img src="images/dock/reminders.png" alt="Reminders Logo" />
+        </button>
+        <button class="icon">
+          <img src="images/dock/pages.png" alt="Pages Logo" />
+        </button>
+        <button class="icon">
+          <img src="images/dock/message.png" alt="Messages Logo" class="hidden" />
+        </button>
+        <button class="icon">
+          <img src="images/dock/music.png" alt="Music Logo" class="hidden" />
+        </button>
+        <button class="icon">
+          <img src="images/dock/calculator.png" alt="Calculator Logo" class="hidden" />
+        </button>
+        <button class="icon">
+          <img src="images/dock/siri.png" alt="Siri Logo" />
+        </button>
+        <button class="icon">
+          <img src="images/dock/preferences.png" alt="Preferences Logo" />
+        </button>
+      </div>
+      <script>
+        // close
+        $(document).ready(function () {
+          $(".panel").click(function () {
+            $(this).parents(".window").toggle("close");
+          });
+        });
+        // open
+        var i = 1;
+
+        $(document).ready(function () {
+          $(".recentlyAtc").click(function () {
+            $(".window-recentlyAtc").toggle("close");
+            $(".window-recentlyAtc").css("z-index", i);
+          });
+        });
+        $(document).ready(function () {
+          $(".bloger").click(function () {
+            $(".window-bloger").toggle("close");
+            $(".window-bloger").css("z-index", i);
+          });
+        });
+        $(document).ready(function () {
+          $(".cover").click(function () {
+            $(".window-list").toggle("close");
+            $(".window-list").css("z-index");
+          });
+        });
+      </script>
+    </footer>
+  </s_tag>
 </body>
 <div id="script"></div>
 

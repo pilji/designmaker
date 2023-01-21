@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/64b7068c33.js" crossorigin="anonymous"></script>
+  <!-- animate -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <!-- common -->
+
+  <title>[##_page_title_##]</title>
+</head>
+<script>
+  $(document).ready(function () {
+    $('#font').load("static/css/font.html");
+    $('#waterjs').load("static/script/water.html");
+    $('#script').load("static/script/script.html");
+    $('#uikitjs').load("static/uikit/uikitjs.min.html");
+    $('#uikit-icons').load("static/uikit/uikit-icons.min.html");
+    $('#uikitcss').load("static/uikit/uikitcss.min.html");
+    $('#header').load("static/css/header.html");
+    $('#main').load("static/css/main.html");
+    $('#section').load("static/css/section.html");
+    $('#footer').load("static/css/footer.html");
+  });
+</script>
+<style>
+  :root {
+    --vlo-color: #0f0f0f;
+    --vlo-white: rgba(255, 255, 255);
+    --vlo-bg-white: rgba(255, 255, 255);
+    --vlo-blur-white-1: rgba(255, 255, 255, 0.4);
+    --vlo-blur-white-2: rgba(255, 255, 255, 0.5);
+    --vlo-blur-white-3: rgba(255, 255, 255, 0.6);
+    --vlo-blur-white-4: rgba(255, 255, 255, 0.7);
+    /* --dm-bg-color: [##_var_darkcolor_##]; */
+  }
+</style>
+
+<body>
+  <s_tag>
+    <div id="font"></div>
+    <div id="waterjs"></div>
+    <div id="uikitjs"></div>
+    <div id="uikit-icons"></div>
+    <div id="uikitcss"></div>
+    <div id="header"></div>
+    <div id="main"></div>
+    <div id="section"></div>
+    <div id="footer"></div>
+    <link rel="stylesheet" href="style.css">
+    <header>
+      <div class="navbar">
+        <ul class="left">
+          <li class="uk-inline">
+            <button>File</button>
+            <div class="category"
+              uk-dropdown="mode: click; pos: bottom-left; boundary: !.boundary; shift: false; flip: false">
+              <!-- [##_category_list_##] -->
+              <ul class="tt_category">
+                <li class=""><a href="/category" class="link_tit"> 분류 전체보기 <span class="c_cnt">(28)</span> </a>
+                  <ul class="category_list">
+                    <li class=""><a href="/category/%EB%B6%80%EB%8F%99%EC%82%B0%ED%95%99%EA%B0%9C%EB%A1%A0"
+                        class="link_item"> 부동산학개론 <span class="c_cnt">(4)</span> </a></li>
+                    <li class=""><a
+                        href="/category/%F0%9F%8C%8D%20%20-%20%EA%B3%B5%EC%9D%B8%EC%A4%91%EA%B0%9C%EC%82%AC%28%EB%B9%84%EA%B3%B5%EA%B0%9C%29"
+                        class="link_item"> 🌍 - 공인중개사(비공개) <span class="c_cnt">(0)</span> </a></li>
+                    <li class=""><a href="/category/%EC%A3%BC%EC%8B%9D" class="link_item"> 주식 <span
+                          class="c_cnt">(0)</span> </a></li>
+                    <li class=""><a href="/category/%EC%9E%85%EC%B0%B0%EC%9D%98%20%EC%A4%80%EB%B9%84" class="link_item">
+                        입찰의 준비 <span class="c_cnt">(2)</span> </a></li>
+                    <li class=""><a
+                        href="/category/%EB%B6%80%EB%8F%99%EC%82%B0%20%EA%B2%BD%EB%A7%A4%20%EB%B2%95%EC%A0%9C%EA%B0%9C%EA%B4%80"
+                        class="link_item"> 부동산 경매 법제개관 <span class="c_cnt">(4)</span> </a></li>
+                    <li class=""><a
+                        href="/category/%ED%95%84%EC%A7%80%EC%9D%98%20%EB%B6%80%EB%8F%99%EC%82%B0%20%EA%B2%BD%EB%A7%A4%20%EC%83%81%EC%8B%9D"
+                        class="link_item"> 필지의 부동산 경매 상식 <span class="c_cnt">(0)</span> </a></li>
+                    <li class=""><a
+                        href="/category/%ED%95%84%EC%A7%80%EC%9D%98%20%EA%B2%BD%EB%A7%A4%20%EC%9D%BC%EC%A7%80%28%EC%9E%84%EC%9E%A5%29"
+                        class="link_item"> 필지의 경매 일지(임장) <span class="c_cnt">(0)</span> </a></li>
+                    <li class=""><a href="/category/Python%20django" class="link_item"> Python django <span
+                          class="c_cnt">(14)</span> </a></li>
+                    <li class=""><a href="/category/AWS%20lightsail%20-%20Django" class="link_item"> AWS lightsail -
+                        Django <span class="c_cnt">(1)</span> </a></li>
+                    <li class=""><a href="/category/%EC%82%AC%EC%97%85" class="link_item"> 사업 <span
+                          class="c_cnt">(1)</span> </a></li>
+                    <li class=""><a href="/category/Python%20django%20-%20LVA" class="link_item"> Python django - LVA
+                        <span class="c_cnt">(2)</span> </a></li>
+                    <li class=""><a href="/category/%ED%95%84%EC%A7%80%EC%9D%98%20%EC%B7%A8%EB%AF%B8%EC%83%9D%ED%99%9C"
+                        class="link_item"> 필지의 취미생활 <span class="c_cnt">(0)</span> </a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <button>Edit</button>
+          </li>
+          <li>
+            <button>Hotkey</button>
+          </li>
+          <li>
+            <button>Help</button>
+          </li>
+        </ul>
+        <ul class="right">
+          <li class="battery">
+            <span class="battery__text">100%</span>
+            <div class="battery__container">
+              <div class="battery__progress battery__high" style="width: 100%;">
+              </div>
+            </div>
+          </li>
+          <li id="ymd" class="hidden"></li>
+          <li id="clock"></li>
+          <script>
+            function currentTime() {
+              const date = new Date();
+              let hh = date.getHours();
+              let mm = date.getMinutes();
+              let session = "AM";
+
+              if (hh == 0) {
+                hh = 12;
+              }
+
+              if (hh > 12) {
+                hh = hh - 12;
+                session = "PM";
+              }
+
+              hh = (hh < 10) ? "0" + hh : hh;
+              mm = (mm < 10) ? "0" + mm : mm;
+
+              const clock = hh + ":" + mm + " " + session;
+
+              document.getElementById("clock").innerText = clock;
+
+              setTimeout(() => currentTime(), 1000);
+            }
+            currentTime();
+            function ymd() {
+              const date = new Date();
+              let yy = date.getFullYear();
+              let mm = date.getMonth() + 1;
+              let dd = date.getDate();
+              mm = (mm < 10) ? "0" + mm : mm;
+
+              const ymd = yy + " · " + mm + " · " + dd;
+
+              document.getElementById("ymd").innerText = ymd;
+            }
+            ymd();
+          </script>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <div class="wallpapers">
+        <div class="app">
+          <ul class="tt_category">
+            <li class="">
+              <a href="/category" class="link_tit"> 분류 전체보기 <span class="c_cnt">(28)</span> </a>
+              <ul class="category_list">
+                <li class=""><a href="/category/%EB%B6%80%EB%8F%99%EC%82%B0%ED%95%99%EA%B0%9C%EB%A1%A0"
+                    class="link_item">
+                    <img src="images/folder.gif" alt="">
+                    부동산학개론 <span class="c_cnt">(4)</span> </a>
+                </li>
+                <li class="">
+                  <a href="/category/%F0%9F%8C%8D%20%20-%20%EA%B3%B5%EC%9D%B8%EC%A4%91%EA%B0%9C%EC%82%AC%28%EB%B9%84%EA%B3%B5%EA%B0%9C%29"
+                    class="link_item">
+                    <img src="images/folder.gif" alt=""> 🌍 - 공인중개사(비공개) <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EC%A3%BC%EC%8B%9D" class="link_item">
+                    <img src="images/folder.gif" alt=""> 주식 <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EB%B6%80%EB%8F%99%EC%82%B0%ED%95%99%EA%B0%9C%EB%A1%A0"
+                    class="link_item">
+                    <img src="images/folder.gif" alt="">
+                    부동산학개론 <span class="c_cnt">(4)</span> </a>
+                </li>
+                <li class="">
+                  <a href="/category/%F0%9F%8C%8D%20%20-%20%EA%B3%B5%EC%9D%B8%EC%A4%91%EA%B0%9C%EC%82%AC%28%EB%B9%84%EA%B3%B5%EA%B0%9C%29"
+                    class="link_item">
+                    <img src="images/folder.gif" alt=""> 🌍 - 공인중개사(비공개) <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EC%A3%BC%EC%8B%9D" class="link_item">
+                    <img src="images/folder.gif" alt=""> 주식 <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EB%B6%80%EB%8F%99%EC%82%B0%ED%95%99%EA%B0%9C%EB%A1%A0"
+                    class="link_item">
+                    <img src="images/folder.gif" alt="">
+                    부동산학개론 <span class="c_cnt">(4)</span> </a>
+                </li>
+                <li class="">
+                  <a href="/category/%F0%9F%8C%8D%20%20-%20%EA%B3%B5%EC%9D%B8%EC%A4%91%EA%B0%9C%EC%82%AC%28%EB%B9%84%EA%B3%B5%EA%B0%9C%29"
+                    class="link_item">
+                    <img src="images/folder.gif" alt=""> 🌍 - 공인중개사(비공개) <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EC%A3%BC%EC%8B%9D" class="link_item">
+                    <img src="images/folder.gif" alt=""> 주식 <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EB%B6%80%EB%8F%99%EC%82%B0%ED%95%99%EA%B0%9C%EB%A1%A0"
+                    class="link_item">
+                    <img src="images/folder.gif" alt="">
+                    부동산학개론 <span class="c_cnt">(4)</span> </a>
+                </li>
+                <li class="">
+                  <a href="/category/%F0%9F%8C%8D%20%20-%20%EA%B3%B5%EC%9D%B8%EC%A4%91%EA%B0%9C%EC%82%AC%28%EB%B9%84%EA%B3%B5%EA%B0%9C%29"
+                    class="link_item">
+                    <img src="images/folder.gif" alt=""> 🌍 - 공인중개사(비공개) <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EC%A3%BC%EC%8B%9D" class="link_item">
+                    <img src="images/folder.gif" alt=""> 주식 <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EB%B6%80%EB%8F%99%EC%82%B0%ED%95%99%EA%B0%9C%EB%A1%A0"
+                    class="link_item">
+                    <img src="images/folder.gif" alt="">
+                    부동산학개론 <span class="c_cnt">(4)</span> </a>
+                </li>
+                <li class="">
+                  <a href="/category/%F0%9F%8C%8D%20%20-%20%EA%B3%B5%EC%9D%B8%EC%A4%91%EA%B0%9C%EC%82%AC%28%EB%B9%84%EA%B3%B5%EA%B0%9C%29"
+                    class="link_item">
+                    <img src="images/folder.gif" alt=""> 🌍 - 공인중개사(비공개) <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EC%A3%BC%EC%8B%9D" class="link_item">
+                    <img src="images/folder.gif" alt=""> 주식 <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EB%B6%80%EB%8F%99%EC%82%B0%ED%95%99%EA%B0%9C%EB%A1%A0"
+                    class="link_item">
+                    <img src="images/folder.gif" alt="">
+                    부동산학개론 <span class="c_cnt">(4)</span> </a>
+                </li>
+                <li class="">
+                  <a href="/category/%F0%9F%8C%8D%20%20-%20%EA%B3%B5%EC%9D%B8%EC%A4%91%EA%B0%9C%EC%82%AC%28%EB%B9%84%EA%B3%B5%EA%B0%9C%29"
+                    class="link_item">
+                    <img src="images/folder.gif" alt=""> 🌍 - 공인중개사(비공개) <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EC%A3%BC%EC%8B%9D" class="link_item">
+                    <img src="images/folder.gif" alt=""> 주식 <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EB%B6%80%EB%8F%99%EC%82%B0%ED%95%99%EA%B0%9C%EB%A1%A0"
+                    class="link_item">
+                    <img src="images/folder.gif" alt="">
+                    부동산학개론 <span class="c_cnt">(4)</span> </a>
+                </li>
+                <li class="">
+                  <a href="/category/%F0%9F%8C%8D%20%20-%20%EA%B3%B5%EC%9D%B8%EC%A4%91%EA%B0%9C%EC%82%AC%28%EB%B9%84%EA%B3%B5%EA%B0%9C%29"
+                    class="link_item">
+                    <img src="images/folder.gif" alt=""> 🌍 - 공인중개사(비공개) <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EC%A3%BC%EC%8B%9D" class="link_item">
+                    <img src="images/folder.gif" alt=""> 주식 <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EB%B6%80%EB%8F%99%EC%82%B0%ED%95%99%EA%B0%9C%EB%A1%A0"
+                    class="link_item">
+                    <img src="images/folder.gif" alt="">
+                    부동산학개론 <span class="c_cnt">(4)</span> </a>
+                </li>
+                <li class="">
+                  <a href="/category/%F0%9F%8C%8D%20%20-%20%EA%B3%B5%EC%9D%B8%EC%A4%91%EA%B0%9C%EC%82%AC%28%EB%B9%84%EA%B3%B5%EA%B0%9C%29"
+                    class="link_item">
+                    <img src="images/folder.gif" alt=""> 🌍 - 공인중개사(비공개) <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EC%A3%BC%EC%8B%9D" class="link_item">
+                    <img src="images/folder.gif" alt=""> 주식 <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EB%B6%80%EB%8F%99%EC%82%B0%ED%95%99%EA%B0%9C%EB%A1%A0"
+                    class="link_item">
+                    <img src="images/folder.gif" alt="">
+                    부동산학개론 <span class="c_cnt">(4)</span> </a>
+                </li>
+                <li class="">
+                  <a href="/category/%F0%9F%8C%8D%20%20-%20%EA%B3%B5%EC%9D%B8%EC%A4%91%EA%B0%9C%EC%82%AC%28%EB%B9%84%EA%B3%B5%EA%B0%9C%29"
+                    class="link_item">
+                    <img src="images/folder.gif" alt=""> 🌍 - 공인중개사(비공개) <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EC%A3%BC%EC%8B%9D" class="link_item">
+                    <img src="images/folder.gif" alt=""> 주식 <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EB%B6%80%EB%8F%99%EC%82%B0%ED%95%99%EA%B0%9C%EB%A1%A0"
+                    class="link_item">
+                    <img src="images/folder.gif" alt="">
+                    부동산학개론 <span class="c_cnt">(4)</span> </a>
+                </li>
+                <li class="">
+                  <a href="/category/%F0%9F%8C%8D%20%20-%20%EA%B3%B5%EC%9D%B8%EC%A4%91%EA%B0%9C%EC%82%AC%28%EB%B9%84%EA%B3%B5%EA%B0%9C%29"
+                    class="link_item">
+                    <img src="images/folder.gif" alt=""> 🌍 - 공인중개사(비공개) <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EC%A3%BC%EC%8B%9D" class="link_item">
+                    <img src="images/folder.gif" alt=""> 주식 <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EB%B6%80%EB%8F%99%EC%82%B0%ED%95%99%EA%B0%9C%EB%A1%A0"
+                    class="link_item">
+                    <img src="images/folder.gif" alt="">
+                    부동산학개론 <span class="c_cnt">(4)</span> </a>
+                </li>
+                <li class="">
+                  <a href="/category/%F0%9F%8C%8D%20%20-%20%EA%B3%B5%EC%9D%B8%EC%A4%91%EA%B0%9C%EC%82%AC%28%EB%B9%84%EA%B3%B5%EA%B0%9C%29"
+                    class="link_item">
+                    <img src="images/folder.gif" alt=""> 🌍 - 공인중개사(비공개) <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EC%A3%BC%EC%8B%9D" class="link_item">
+                    <img src="images/folder.gif" alt=""> 주식 <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EB%B6%80%EB%8F%99%EC%82%B0%ED%95%99%EA%B0%9C%EB%A1%A0"
+                    class="link_item">
+                    <img src="images/folder.gif" alt="">
+                    부동산학개론 <span class="c_cnt">(4)</span> </a>
+                </li>
+                <li class="">
+                  <a href="/category/%F0%9F%8C%8D%20%20-%20%EA%B3%B5%EC%9D%B8%EC%A4%91%EA%B0%9C%EC%82%AC%28%EB%B9%84%EA%B3%B5%EA%B0%9C%29"
+                    class="link_item">
+                    <img src="images/folder.gif" alt=""> 🌍 - 공인중개사(비공개) <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EC%A3%BC%EC%8B%9D" class="link_item">
+                    <img src="images/folder.gif" alt=""> 주식 <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EB%B6%80%EB%8F%99%EC%82%B0%ED%95%99%EA%B0%9C%EB%A1%A0"
+                    class="link_item">
+                    <img src="images/folder.gif" alt="">
+                    부동산학개론 <span class="c_cnt">(4)</span> </a>
+                </li>
+                <li class="">
+                  <a href="/category/%F0%9F%8C%8D%20%20-%20%EA%B3%B5%EC%9D%B8%EC%A4%91%EA%B0%9C%EC%82%AC%28%EB%B9%84%EA%B3%B5%EA%B0%9C%29"
+                    class="link_item">
+                    <img src="images/folder.gif" alt=""> 🌍 - 공인중개사(비공개) <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EC%A3%BC%EC%8B%9D" class="link_item">
+                    <img src="images/folder.gif" alt=""> 주식 <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EB%B6%80%EB%8F%99%EC%82%B0%ED%95%99%EA%B0%9C%EB%A1%A0"
+                    class="link_item">
+                    <img src="images/folder.gif" alt="">
+                    부동산학개론 <span class="c_cnt">(4)</span> </a>
+                </li>
+                <li class="">
+                  <a href="/category/%F0%9F%8C%8D%20%20-%20%EA%B3%B5%EC%9D%B8%EC%A4%91%EA%B0%9C%EC%82%AC%28%EB%B9%84%EA%B3%B5%EA%B0%9C%29"
+                    class="link_item">
+                    <img src="images/folder.gif" alt=""> 🌍 - 공인중개사(비공개) <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EC%A3%BC%EC%8B%9D" class="link_item">
+                    <img src="images/folder.gif" alt=""> 주식 <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EB%B6%80%EB%8F%99%EC%82%B0%ED%95%99%EA%B0%9C%EB%A1%A0"
+                    class="link_item">
+                    <img src="images/folder.gif" alt="">
+                    부동산학개론 <span class="c_cnt">(4)</span> </a>
+                </li>
+                <li class="">
+                  <a href="/category/%F0%9F%8C%8D%20%20-%20%EA%B3%B5%EC%9D%B8%EC%A4%91%EA%B0%9C%EC%82%AC%28%EB%B9%84%EA%B3%B5%EA%B0%9C%29"
+                    class="link_item">
+                    <img src="images/folder.gif" alt=""> 🌍 - 공인중개사(비공개) <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EC%A3%BC%EC%8B%9D" class="link_item">
+                    <img src="images/folder.gif" alt=""> 주식 <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EB%B6%80%EB%8F%99%EC%82%B0%ED%95%99%EA%B0%9C%EB%A1%A0"
+                    class="link_item">
+                    <img src="images/folder.gif" alt="">
+                    부동산학개론 <span class="c_cnt">(4)</span> </a>
+                </li>
+                <li class="">
+                  <a href="/category/%F0%9F%8C%8D%20%20-%20%EA%B3%B5%EC%9D%B8%EC%A4%91%EA%B0%9C%EC%82%AC%28%EB%B9%84%EA%B3%B5%EA%B0%9C%29"
+                    class="link_item">
+                    <img src="images/folder.gif" alt=""> 🌍 - 공인중개사(비공개) <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+                <li class=""><a href="/category/%EC%A3%BC%EC%8B%9D" class="link_item">
+                    <img src="images/folder.gif" alt=""> 주식 <span class="c_cnt">(0)</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <section>
+      <div class="window window-list">
+        <div class="top">
+          <div class="panel">
+            <span class="first"></span>
+            <span class="second"></span>
+            <span class="third"></span>
+          </div>
+          <div class="nav">
+            <span class="address">
+              <input type="text" value="카테고리 > 캠핑" class="address" editable="false" readonly>
+              <i class="fa fa-refresh"></i>
+            </span>
+          </div>
+          <div class="nav right">
+            <div class="section-split">
+              <span id="grid" uk-tooltip="title: 그리드; pos: bottom"><i class="fa-regular fa-image"></i></span>
+              <span id="list" uk-tooltip="title: 리스트; pos: bottom"><i class="fa-solid fa-list"></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="inside">
+          <div class="category">
+            <ul class="uk-nav-default" uk-nav>
+
+              [##_category_list_##]
+              <a href="/category" class="link_tit"> <span class="font-lobster">Category</span> <span
+                  class="c_cnt">(9)</span>
+              </a>
+              <li class="uk-active"><a href="#"><i class="fa-solid fa-campground"></i>캠핑</a></li>
+              <li class="uk-parent">
+                <a href="#"><i class="fa-solid fa-campground"></i>Parent <span uk-nav-parent-icon></span></a>
+                <ul class="uk-nav-sub">
+                  <li><a href="#">Sub item</a></li>
+                  <li>
+                    <a href="#">Sub item</a>
+                    <ul>
+                      <li><a href="#">Sub item</a></li>
+                      <li><a href="#">Sub item</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="uk-parent">
+                <a href="#"><i class="fa-solid fa-campground"></i>Parent <span uk-nav-parent-icon></span></a>
+                <ul class="uk-nav-sub">
+                  <li><a href="#">Sub item</a></li>
+                  <li><a href="#">Sub item</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- list -->
+          <div class="section" style="display:">
+            <div class="uk-child-width-1-2 uk-child-width-1-3@m section-grid animate__animated  animate__slideInDown"
+              style="padding-top: 30px;" uk-grid>
+              <div class="section-grid-item">
+                <div class="section-list-img">
+                  <img src="images/water.jpg" alt="">
+                </div>
+                <div class="section-list-title">이러쿵 저러쿵</div>
+              </div>
+              <div class="section-grid-item">
+                <div class="section-list-img">
+                  <img src="images/water.jpg" alt="">
+                </div>
+                <div class="section-list-title">이러쿵 저러쿵</div>
+              </div>
+              <div class="section-grid-item">
+                <div class="section-list-img">
+                  <img src="images/water.jpg" alt="">
+                </div>
+                <div class="section-list-title">이러쿵 저러쿵</div>
+              </div>
+            </div>
+            <div class="uk-overflow-auto section-list animate__animated animate__fadeIn">
+              <table class="uk-table uk-table-hover uk-table-middle uk-table-divider">
+                <thead>
+                  <tr>
+                    <th class="uk-table-shrink"></th>
+                    <th class="uk-width-small">제목</th>
+                    <th class="uk-width-small">작성일</th>
+                    <th class="uk-table-shrink uk-text-nowrap">카테고리</th>
+                    <th class="uk-table-shrink uk-text-nowrap">댓글수</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><img class="uk-preserve-width uk-border-circle" src="images/water.jpg" width="40" height="40"
+                        alt="">
+                    </td>
+                    <td class="uk-text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                      tempor.</td>
+                    <td class="uk-text-nowrap">Lorem ipsum dolor</td>
+                    <td class="uk-text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                      tempor.</td>
+                    <td class="uk-text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                      tempor.</td>
+                  </tr>
+                  <tr>
+                    <td><img class="uk-preserve-width uk-border-circle" src="images/water.jpg" width="40" height="40"
+                        alt="">
+                    </td>
+                    <td class="uk-table-link">
+                      <a class="uk-link-reset" href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor.</a>
+                    </td>
+                    <td class="uk-text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                      tempor.</td>
+                    <td class="uk-text-nowrap">Lorem ipsum dolor</td>
+                  </tr>
+                  <tr>
+                    <td><img class="uk-preserve-width uk-border-circle" src="images/water.jpg" width="40" height="40"
+                        alt="">
+                    </td>
+                    <td class="uk-table-link">
+                      <a class="uk-link-reset" href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor.</a>
+                    </td>
+                    <td class="uk-text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                      tempor.</td>
+                    <td class="uk-text-nowrap">Lorem ipsum dolor</td>
+                  </tr>
+                  <tr>
+                    <td><img class="uk-preserve-width uk-border-circle" src="images/water.jpg" width="40" height="40"
+                        alt="">
+                    </td>
+                    <td class="uk-table-link">
+                      <a class="uk-link-reset" href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor.</a>
+                    </td>
+                    <td class="uk-text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                      tempor.</td>
+                    <td class="uk-text-nowrap">Lorem ipsum dolor</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- cover -->
+          <div class="section section-cover" style="display: none;">
+            <div class="animate__animated  animate__slideInDown" style="margin-top: 20px;">
+
+              <div style="margin-bottom: 10px;">베스트 카테고리</div>
+              <div class="folder-group" style="display: flex;">
+                <div class="folder">
+                  <div class="icon"></div>
+                  <span>
+                    Desktop
+                  </span>
+                </div>
+                <div class="folder">
+                  <div class="icon"></div>
+                  <span>
+                    Desktop
+                  </span>
+                </div>
+                <div class="folder">
+                  <div class="icon"></div>
+                  <span>
+                    Desktop
+                  </span>
+                </div>
+                <div class="folder">
+                  <div class="icon"></div>
+                  <span>
+                    Desktop
+                  </span>
+                </div>
+                <div class="folder">
+                  <div class="icon"></div>
+                  <span>
+                    Desktop
+                  </span>
+                </div>
+                <div class="folder">
+                  <div class="icon"></div>
+                  <span>
+                    Desktop
+                  </span>
+                </div>
+              </div>
+              <div style="margin: 20px 0 20px; display: block; width: 100%;">인기글</div>
+              <div class="uk-child-width-1-2 uk-child-width-1-3@m section-grid" uk-grid>
+                <div class="section-grid-item">
+                  <div class="section-list-img">
+                    <img src="images/water.jpg" alt="">
+                  </div>
+                  <div class="section-list-title">이러쿵 저러쿵</div>
+                </div>
+                <div class="section-grid-item">
+                  <div class="section-list-img">
+                    <img src="images/water.jpg" alt="">
+                  </div>
+                  <div class="section-list-title">이러쿵 저러쿵</div>
+                </div>
+                <div class="section-grid-item">
+                  <div class="section-list-img">
+                    <img src="images/water.jpg" alt="">
+                  </div>
+                  <div class="section-list-title">이러쿵 저러쿵</div>
+                </div>
+              </div>
+
+              <div style="margin: 40px 0 0; display: block; width: 100%;">최신글</div>
+              <div class="uk-overflow-auto section-list">
+                <table class="uk-table uk-table-hover uk-table-middle uk-table-divider">
+                  <thead>
+                    <tr>
+                      <th class="uk-table-shrink"></th>
+                      <th class="uk-width-small">제목</th>
+                      <th class="uk-width-small">작성일</th>
+                      <th class="uk-table-shrink uk-text-nowrap">카테고리</th>
+                      <th class="uk-table-shrink uk-text-nowrap">댓글수</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><img class="uk-preserve-width uk-border-circle" src="images/water.jpg" width="40" height="40"
+                          alt="">
+                      </td>
+                      <td class="uk-text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod
+                        tempor.</td>
+                      <td class="uk-text-nowrap">Lorem ipsum dolor</td>
+                      <td class="uk-text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod
+                        tempor.</td>
+                      <td class="uk-text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod
+                        tempor.</td>
+                    </tr>
+                    <tr>
+                      <td><img class="uk-preserve-width uk-border-circle" src="images/water.jpg" width="40" height="40"
+                          alt="">
+                      </td>
+                      <td class="uk-table-link">
+                        <a class="uk-link-reset" href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                          eiusmod tempor.</a>
+                      </td>
+                      <td class="uk-text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod
+                        tempor.</td>
+                      <td class="uk-text-nowrap">Lorem ipsum dolor</td>
+                    </tr>
+                    <tr>
+                      <td><img class="uk-preserve-width uk-border-circle" src="images/water.jpg" width="40" height="40"
+                          alt="">
+                      </td>
+                      <td class="uk-table-link">
+                        <a class="uk-link-reset" href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                          eiusmod tempor.</a>
+                      </td>
+                      <td class="uk-text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod
+                        tempor.</td>
+                      <td class="uk-text-nowrap">Lorem ipsum dolor</td>
+                    </tr>
+                    <tr>
+                      <td><img class="uk-preserve-width uk-border-circle" src="images/water.jpg" width="40" height="40"
+                          alt="">
+                      </td>
+                      <td class="uk-table-link">
+                        <a class="uk-link-reset" href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                          eiusmod tempor.</a>
+                      </td>
+                      <td class="uk-text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod
+                        tempor.</td>
+                      <td class="uk-text-nowrap">Lorem ipsum dolor</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- description -->
+          <div class="section section-description" style="padding:0;display:none">
+
+            <s_article_rep>
+              <div class="area-promotion" style="height: 250px;">
+                <div class="inner-promotion">
+                  <div class="box-promotion" style="padding: 20px;">
+                    <div class="titleWrap">
+                      <h2><a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a></h2>
+                      <div class="article_category">
+                        <a href="[##_article_rep_category_link_##]">[##_article_rep_category_##]</a>
+                      </div>
+                      <div class="date">[##_article_rep_date_##]</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ocean">
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+              </div>
+
+              <div class="article" style="margin-top: 40px; padding: 20px">
+                [##_article_rep_desc_##]
+              </div>
+            </s_article_rep>
+            <div class="commentList">
+              <s_rp_container>
+                <ol>
+                  <s_rp_rep>
+                    <li id='[##_rp_rep_id_##]'>
+                      <div class="[##_rp_rep_class_##]">
+                        <span class="image">[##_rp_rep_logo_##]</span>
+                        <span class="name">[##_rp_rep_name_##]</span>
+                        <span class="date"> [##_rp_rep_date_##]</span>
+                        <span class="control">
+                          <a href="[##_rp_rep_link_##]" class="address">&nbsp;
+                            <span>댓글주소</span>
+                          </a>
+                          <a href="#" onclick="[##_rp_rep_onclick_delete_##]" class="modify">&nbsp;
+                            <span>수정/삭제</span>
+                          </a>
+                          <a href="#" onclick="[##_rp_rep_onclick_reply_##]" class="write">&nbsp;
+                            <span>댓글쓰기</span>
+                          </a>
+                        </span>
+                        <p>[##_rp_rep_desc_##]</p>
+                      </div>
+                      <s_rp2_container>
+                        <ul>
+                          <s_rp2_rep>
+                            <li id='[##_rp_rep_id_##]'>
+                              <div class="[##_rp_rep_class_##]">
+                                <span class="image">[##_rp_rep_logo_##]</span>
+                                <span class="name">[##_rp_rep_name_##]</span>
+                                <span class="date"> [##_rp_rep_date_##]</span>
+                                <span class="control">
+                                  <a href="[##_rp_rep_link_##]" class="address">&nbsp;
+                                    <span>댓글주소</span>
+                                  </a>
+                                  <a href="#" onclick="[##_rp_rep_onclick_delete_##]" class="modify">&nbsp;
+                                    <span>수정/삭제</span>
+                                  </a>
+                                </span>
+                                <p>[##_rp_rep_desc_##]</p>
+                              </div>
+                            </li>
+                          </s_rp2_rep>
+                        </ul>
+                      </s_rp2_container>
+                    </li>
+                  </s_rp_rep>
+                </ol>
+              </s_rp_container>
+            </div>
+          </div>
+
+          <script>
+            $(document).ready(function () {
+              $("#grid").click(function () {
+                $(".section-grid").css("display", "flex");
+                $(".section-list").css("display", "none");
+              });
+              $("#list").click(function () {
+                $(".section-list").css("display", "block");
+                $(".section-grid").css("display", "none");
+              });
+            });
+
+
+
+            // window
+            $(".window")
+              .draggable({
+                cancel: ".inside,input,textarea"
+              });
+            $(".window-bloger")
+              .draggable({
+                cancel: ".inside,input,textarea"
+              });
+
+
+            $("input.address").focus(function () {
+              $(".fa-refresh").hide(500);
+              this.select();
+            }).focusout(function () {
+              $(".fa-refresh").show(500);
+            });
+
+            // ui-draggable 
+            var __dx;
+            var __dy;
+            var __scale = 0.5;
+            var __recoupLeft, __recoupTop;
+
+            $(".ui-draggable").draggable({
+              //revert: true,
+              zIndex: 100,
+              drag: function (event, ui) {
+                //resize bug fix ui drag `enter code here`
+                __dx = ui.position.left - ui.originalPosition.left;
+                __dy = ui.position.top - ui.originalPosition.top;
+                //ui.position.left = ui.originalPosition.left + ( __dx/__scale);
+                //ui.position.top = ui.originalPosition.top + ( __dy/__scale );
+                ui.position.left = ui.originalPosition.left + (__dx);
+                ui.position.top = ui.originalPosition.top + (__dy);
+                //
+                ui.position.left += __recoupLeft;
+                ui.position.top += __recoupTop;
+              },
+              start: function (event, ui) {
+                $(this).css('cursor', 'pointer');
+                //resize bug fix ui drag
+                var left = parseInt($(this).css('left'), 10);
+                left = isNaN(left) ? 0 : left;
+                var top = parseInt($(this).css('top'), 10);
+                top = isNaN(top) ? 0 : top;
+                __recoupLeft = left - ui.position.left;
+                __recoupTop = top - ui.position.top;
+              },
+              stop: function (event, ui) {
+                $(this).css('cursor', 'default');
+                //alternate to revert (don't use revert)
+                $(this).animate({
+                  left: $(this).attr('oriLeft'),
+                  top: $(this).attr('oriTop')
+                }, 1000)
+              },
+              create: function (event, ui) {
+                $(this).attr('oriLeft', $(this).css('left'));
+                $(this).attr('oriTop', $(this).css('top'));
+              }
+            })
+
+          </script>
+    </section>
+    <footer>
+      <div class="dock">
+        <button class="icon bloger">
+          <img src="images/dock/finder.png" alt="Finder Logo" />
+        </button>
+        <button class="icon cover">
+          <img src="images/dock/launchpad.png" alt="Launchpad Logo" />
+        </button>
+        <button class="icon recentlyAtc">
+          <img src="images/dock/reminders.png" alt="Reminders Logo" />
+        </button>
+        <button class="icon">
+          <img src="images/dock/pages.png" alt="Pages Logo" />
+        </button>
+        <button class="icon">
+          <img src="images/dock/message.png" alt="Messages Logo" class="hidden" />
+        </button>
+        <button class="icon">
+          <img src="images/dock/music.png" alt="Music Logo" class="hidden" />
+        </button>
+        <button class="icon">
+          <img src="images/dock/calculator.png" alt="Calculator Logo" class="hidden" />
+        </button>
+        <button class="icon">
+          <img src="images/dock/siri.png" alt="Siri Logo" />
+        </button>
+        <button class="icon">
+          <img src="images/dock/preferences.png" alt="Preferences Logo" />
+        </button>
+      </div>
+      <script>
+        // close
+        $(document).ready(function () {
+          $(".panel").click(function () {
+            $(this).parents(".window").toggle("close");
+          });
+        });
+        // open
+        var i = 1;
+
+        $(document).ready(function () {
+          $(".recentlyAtc").click(function () {
+            $(".window-recentlyAtc").toggle("close");
+            $(".window-recentlyAtc").css("z-index", i);
+          });
+        });
+        $(document).ready(function () {
+          $(".bloger").click(function () {
+            $(".window-bloger").toggle("close");
+            $(".window-bloger").css("z-index", i);
+          });
+        });
+        $(document).ready(function () {
+          $(".cover").click(function () {
+            $(".window-list").toggle("close");
+            $(".window-list").css("z-index");
+          });
+        });
+      </script>
+    </footer>
+  </s_tag>
+</body>
+<div id="script"></div>
+
+</html>
