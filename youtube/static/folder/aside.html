@@ -1,0 +1,94 @@
+<aside>
+  <style>
+    aside {
+      position: fixed;
+      left: 0;
+      top: var(--vlo-header-height);
+      width: var(--vlo-sidebar-width);
+      height: calc(100vh - var(--vlo-header-height));
+      box-sizing: border-box;
+      padding: 12px;
+      overflow: auto;
+      transition: all 1s;
+      background-color: #fff;
+      z-index: 2020;
+    }
+
+    aside>div>ul>li>a>i {
+      margin-right: 10px;
+      width: 18px;
+    }
+
+    aside>div>ul>li>a:hover,
+    aside>div>ul>li>ul>li>a:hover {
+      background-color: #f3f3f3;
+    }
+
+    aside .uk-nav-default>li>a,
+    aside .uk-nav-default>li>a:hover {
+      color: #0f0f0f;
+    }
+
+    aside .uk-nav-default .uk-nav-sub a,
+    aside .uk-nav-default .uk-nav-sub a:hover {
+      color: #0f0f0f;
+    }
+
+    aside>div>ul .uk-nav-sub {
+      padding: 0 0 0 32px;
+    }
+
+    aside>div .uk-nav li>a {
+      padding: 8px 12px !important;
+      font-size: 16px;
+      border-radius: 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    aside .line {
+      border-bottom: 1px solid rgb(239, 238, 238);
+    }
+
+    aside .uk-icon {
+      margin-right: 10px;
+    }
+
+    @media (width<900px) {
+      aside {
+        left: -250px;
+      }
+    }
+  </style>
+  <div>
+    <ul class="uk-nav-default" uk-nav="multiple: true">
+      <li class="uk-active"><a href="[##_guestbook_link_##]"><i uk-icon="icon: users"></i>방명록</a></li>
+    </ul>
+    <div class="line"></div>
+    <s_sidebar_element>
+      [##_category_list_##]
+    </s_sidebar_element>
+    <ul class="uk-nav-default" uk-nav="multiple: true">
+      <li class="uk-active"><a href="#"><i uk-icon="icon: home"></i>홈</a></li>
+      <li class="uk-parent">
+        <a href="#"><i uk-icon="icon: youtube"></i>YouTube <span uk-nav-parent-icon></span></a>
+        <ul class="uk-nav-sub">
+          <li>
+            <a href="#">Sub item</a>
+          </li>
+          <li>
+            <a href="#">Sub item</a>
+          </li>
+        </ul>
+      </li>
+      <li class="uk-parent">
+        <a href="#"><i uk-icon="icon: instagram"></i>Instagram <span uk-nav-parent-icon></span></a>
+        <ul class="uk-nav-sub">
+          <li><a href="#">Sub item</a></li>
+          <li><a href="#">Sub item</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</aside>

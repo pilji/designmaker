@@ -1,0 +1,448 @@
+<div class="cover">
+    <style>
+        .cover {
+            position: absolute;
+            top: calc(var(--vlo-header-height) + var(--vlo-tag-height));
+            left: var(--vlo-sidebar-width);
+            width: calc(100% - var(--vlo-sidebar-width));
+        }
+
+        .cover .container {
+            padding: 20px;
+            width: 1400px;
+            margin: auto;
+            box-sizing: border-box;
+        }
+
+        @media (width < 1650px) {
+            .cover .container {
+                width: 100%;
+            }
+        }
+
+        @media (width < 900px) {
+            .cover {
+                left: 0;
+                width: calc(100%);
+            }
+
+            .cover .container {
+                width: 100%;
+            }
+        }
+
+        .cover .image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            filter: brightness(70%);
+        }
+
+        .cover .welcom-item .text {
+            position: absolute;
+            top: 100px;
+            left: 0px;
+            color: #fff;
+            font-size: 25px;
+            text-align: center;
+            width: calc(100%);
+        }
+
+        .cover .author-pick-item {
+            margin-top: 30px;
+        }
+
+        .cover .swiper-author-pick {
+            width: 100%;
+            height: 300px;
+            box-sizing: border-box;
+            padding-top: 10px;
+        }
+
+        .cover .swiper-slide {
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+
+        .cover .swiper-slide:hover {
+            background-color: #f7f7f7;
+        }
+
+        .cover .swiper-slide .image {
+            height: 160px;
+            border-radius: 10px;
+            filter: brightness(100%);
+        }
+
+        .cover .swiper-slide .detail {
+            padding-top: 10px;
+            font-size: 16px;
+            line-height: 25px;
+            font-weight: 500;
+            overflow: hidden;
+            display: block;
+            max-height: 4rem;
+            -webkit-line-clamp: 2;
+            display: box;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            white-space: normal;
+        }
+
+        .cover .swiper-slide span {
+            font-size: 14px;
+            line-height: 3rem;
+            font-weight: 400;
+            overflow: hidden;
+            display: block;
+            max-height: 3.6rem;
+            -webkit-line-clamp: 2;
+        }
+
+        .cover .author-pick-item .prev {
+            font-size: 30px;
+        }
+
+        .cover .author-pick-item .next {
+            font-size: 30px;
+        }
+
+        .cover .header {
+            padding: 0 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .cover .swiper-button-disabled {
+            color: #d7d7d7;
+        }
+
+        .cover .sub-title {
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
+        .cover .grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px 20px;
+        }
+
+        @media (width < 1200px) {
+            .cover .grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (width < 960px) {
+            .cover .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (width < 640px) {
+            .cover .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .cover .item {
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+
+        .cover .item:hover {
+            background-color: #efeded;
+        }
+
+        .cover .item .image {
+            height: 160px;
+            border-radius: 10px;
+            filter: brightness(100%);
+        }
+
+        .cover .item .detail {
+            padding-top: 10px;
+            font-size: 16px;
+            line-height: 25px;
+            font-weight: 500;
+            overflow: hidden;
+            display: block;
+            -webkit-line-clamp: 2;
+            display: box;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            white-space: normal;
+        }
+
+        .cover .item span {
+            font-size: 14px;
+            line-height: 3rem;
+            font-weight: 400;
+            overflow: hidden;
+            display: block;
+            max-height: 3.6rem;
+            -webkit-line-clamp: 2;
+        }
+
+        .cover .grid-list {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 10px 20px;
+        }
+
+        .cover .best-desription .item span {
+            display: block;
+            line-height: 1.5rem;
+            max-height: 3rem;
+        }
+
+        .cover .best-desription .item {
+            margin-bottom: 10px;
+        }
+
+        .cover .best-desription .detail-title {
+            font-size: 16px;
+            line-height: 25px;
+            font-weight: 500;
+            overflow: hidden;
+            display: block;
+            -webkit-line-clamp: 1;
+            display: box;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            white-space: normal;
+        }
+
+        .cover .detail-description {
+            margin-top: 10px;
+            font-size: 16px;
+            line-height: 25px;
+            font-weight: 500;
+            overflow: hidden;
+            display: block;
+            -webkit-line-clamp: 3;
+            display: box;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            white-space: normal;
+        }
+
+        @media (width < 640px) {
+            .cover .best-desription .detail-title {
+                -webkit-line-clamp: 3;
+            }
+
+            .cover .detail-description {
+                display: none;
+            }
+        }
+
+        .cover h4 {
+            padding: 0 4px;
+        }
+
+        .cover .page-run {
+            width: 120px;
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
+    <s_cover_group>
+        <s_cover_rep>
+            <s_cover name='welcome'>
+                <div class='welcom-item'>
+                    <s_cover_item_thumbnail>
+                        <img class="image" src="static/water.jpg">
+                        <div class="ocean">
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                        </div>
+                    </s_cover_item_thumbnail>
+                    <div class="text">
+                        <strong class="title">[##_cover_item_title_##]</strong>
+                    </div>
+                </div>
+            </s_cover>
+            <s_cover name='author-pick'>
+                <div class="container">
+                    <div class='author-pick-item'>
+                        <!-- Slider main container -->
+                        <div class="header">
+                            <h4>[##_blogger_##]가 선정한 BEST 글목록 ✨</h4>
+                            <div class="page-run">
+                                <span class="prev">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="next">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="swiper swiper-author-pick">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <div class="swiper-slide">
+                                    <img class="image" src="static/water.jpg">
+                                    <div class="detail">
+                                        1-1. 코딩이란? 🌏세계 최초 유튜브 유료 클래스 오픈📖~~~~~
+                                    </div>
+                                    <span>댓글수 1 · 2일 전</span>
+                                </div>
+                                <div class="swiper-slide"><img class="image" src="static/water.jpg"></div>
+                                <div class="swiper-slide"><img class="image" src="static/water.jpg"></div>
+                                <div class="swiper-slide">
+                                    <img class="image" src="static/water.jpg">
+                                    <div class="detail">
+                                        1-1. 코딩이란? 🌏세계 최초 유튜브 유료 클래스 오픈📖~~~~~
+                                    </div>
+                                    <span>댓글수 1 · 2일 전</span>
+                                </div>
+                                <div class="swiper-slide"><img class="image" src="static/water.jpg"></div>
+                                <div class="swiper-slide"><img class="image" src="static/water.jpg"></div>
+                                <div class="swiper-slide">
+                                    <img class="image" src="static/water.jpg">
+                                    <div class="detail">
+                                        1-1. 코딩이란? 🌏세계 최초 유튜브 유료 클래스 오픈📖~~~~~
+                                    </div>
+                                    <span>댓글수 1 · 2일 전</span>
+                                </div>
+                                <div class="swiper-slide"><img class="image" src="static/water.jpg"></div>
+                                <div class="swiper-slide"><img class="image" src="static/water.jpg"></div>
+                                <div class="swiper-slide">
+                                    <img class="image" src="static/water.jpg">
+                                    <div class="detail">
+                                        1-1. 코딩이란? 🌏세계 최초 유튜브 유료 클래스 오픈📖~~~~~
+                                    </div>
+                                    <span>댓글수 1 · 2일 전</span>
+                                </div>
+                                <div class="swiper-slide"><img class="image" src="static/water.jpg"></div>
+                                <div class="swiper-slide"><img class="image" src="static/water.jpg"></div>
+                                <div class="swiper-slide">
+                                    <img class="image" src="static/water.jpg">
+                                    <div class="detail">
+                                        1-1. 코딩이란? 🌏세계 최초 유튜브 유료 클래스 오픈📖~~~~~
+                                    </div>
+                                    <span>댓글수 1 · 2일 전</span>
+                                </div>
+                                <div class="swiper-slide"><img class="image" src="static/water.jpg"></div>
+                                <div class="swiper-slide"><img class="image" src="static/water.jpg"></div>
+                            </div>
+                            <!-- If we need pagination -->
+                            <div class="swiper-pagination"></div>
+
+                            <!-- If we need navigation buttons -->
+
+                        </div>
+                        <script>
+                            const swiper = new Swiper('.swiper-author-pick', {
+                                // Optional parameters
+                                loop: false,
+                                // Navigation arrows
+                                navigation: {
+                                    nextEl: '.next',
+                                    prevEl: '.prev',
+                                },
+
+                                breakpoints: {
+                                    1400: {
+                                        slidesPerView: 6,
+                                        slidesPerGroup: 6
+                                    },
+                                    1280: {
+                                        slidesPerView: 5,
+                                        slidesPerGroup: 5
+                                    },
+                                    800: {
+                                        slidesPerView: 4,
+                                        slidesPerGroup: 4
+                                    },
+                                    640: {
+                                        slidesPerView: 2,
+                                        slidesPerGroup: 2
+                                    }
+                                },
+                                slidesPerView: 2,
+                                spaceBetween: 0,
+                            });
+                        </script>
+                    </div>
+                </div>
+            </s_cover>
+            <s_cover name="recently-decsription">
+                <div class="container">
+                    <div class="recently-desription">
+                        <div class="header">
+                            <h4>
+                                최신 글 🌠
+                                <div class="sub-title">따끈따근 하게 올라온 최신 포스팅을 구경해보세요 !</div>
+                            </h4>
+                        </div>
+                        <div class="body">
+                            <div class="grid">
+                                <div class="item">
+                                    <img class="image" src="static/water.jpg">
+                                    <div class="detail">
+                                        1-1. 코딩이란? 🌏세계 최초 유튜브 유료 클래스 오픈📖~~~~~
+                                    </div>
+                                    <span>댓글수 1 · 2일 전</span>
+                                </div>
+                                <div class="item">
+                                    <img class="image" src="static/water.jpg">
+                                    <div class="detail">
+                                        1-1. 코딩이란? 🌏세계 최초 유튜브 유료 클래스 오픈📖~~~~~
+                                    </div>
+                                    <span>댓글수 1 · 2일 전</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </s_cover>
+            <s_cover name="best-decsription">
+                <div class="container">
+                    <div class="best-desription">
+                        <div class="header">
+                            <h4>
+                                인기 글 🏅
+                                <div class="sub-title">따끈따근 하게 올라온 최신 포스팅을 구경해보세요 !</div>
+                            </h4>
+                        </div>
+                        <div class="body">
+                            <div class="list">
+                                <div class="item">
+                                    <div class="grid-list">
+                                        <img class="image" src="static/water.jpg">
+                                        <div class="detail">
+                                            <div class="detail-title">
+                                                1-1. 코딩이란? 🌏세계 최초 유튜브 유료 클래스 오픈📖~~~~~
+                                            </div>
+                                            <span>댓글수 1 · 2일 전</span>
+                                            <div class="detail-description">
+                                                1-1. 코딩이란? 🌏세계 최초 유튜브 유료 클래스 오픈📖~~~~~1-1. 코딩이란? 🌏세계 최초 유튜브 유료 클래스
+                                                오픈📖~~~~~
+                                                1-1. 코딩이란? 🌏세계 최초 유튜브 유료 클래스 오픈📖~~~~~1-1. 코딩이란? 🌏세계 최초 유튜브 유료 클래스
+                                                오픈📖~~~~~
+                                                1-1. 코딩이란? 🌏세계 최초 유튜브 유료 클래스 오픈📖~~~~~1-1. 코딩이란? 🌏세계 최초 유튜브 유료 클래스
+                                                오픈📖~~~~~
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </s_cover>
+        </s_cover_rep>
+    </s_cover_group>
+</div>

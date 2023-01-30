@@ -1,0 +1,595 @@
+
+      <style>
+        .sun-gradient {
+          background: radial-gradient(ellipse at bottom, rgba(137, 155, 216, 0.15), transparent);
+          height: 100vh;
+          width: 100vw;
+          z-index: 4;
+          position: fixed;
+          top: 0;
+          left: 0;
+        }
+
+        .top-gradient {
+          background: linear-gradient(rgba(14, 15, 18, 1), rgba(0, 0, 0, 0));
+          z-index: 3;
+          height: 20%;
+          width: 100%;
+          position: fixed;
+          top: 0;
+          left: 0;
+        }
+
+        .starfield {
+          z-index: 3;
+          background: rgb(14, 15, 18);
+          position: fixed;
+          top: 0;
+          left: 0;
+        }
+
+        .debugger {
+          left: 0;
+          top: 0;
+          display: flex;
+          position: fixed;
+          width: 100%;
+          height: 20%;
+          background-color: #ffffff;
+          z-index: 6;
+        }
+
+        .guest_book {
+          position: absolute;
+          top: calc(var(--vlo-header-height) + var(--vlo-tag-height));
+          left: var(--vlo-sidebar-width);
+          width: calc(100% - var(--vlo-sidebar-width));
+          color: #fff;
+          box-sizing: border-box;
+        }
+
+        .guest_book .section {
+          z-index: 10;
+          position: relative;
+        }
+
+        .guest_book .container {
+          width: 700px;
+          padding: 20px;
+          z-index: 10;
+          margin: auto;
+          box-sizing: border-box;
+        }
+
+        .guest_book .header {
+          position: relative;
+          text-align: center;
+          font-size: 30px;
+          font-weight: 600;
+        }
+
+        .guest_book .header span {
+          display: block;
+          font-size: 18px;
+          font-weight: 600;
+          margin-top: 10px;
+        }
+
+        .guest_book .guestWrite {
+          margin-top: 30px;
+          background-color: rgba(255, 255, 255, 0.5);
+          -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+          border-radius: 20px;
+          padding: 20px;
+          box-sizing: border-box;
+        }
+
+        .guest_book input::placeholder,
+        .guest_book textarea::placeholder {
+          color: #fff;
+        }
+
+        .guest_book .guestbook .uk-input,
+        .guest_book .guestbook .uk-textarea {
+          background-color: inherit;
+          border: 0;
+          color: var(--vlo-black);
+        }
+
+        .uk-form-icon {
+          color: var(--vlo-black);
+        }
+
+        .uk-grid>* {
+          padding: 0;
+        }
+        .uk-grid {
+          margin: 0;
+        }
+
+        .guestList {
+          color: #fff;
+          background-color: rgba(255, 255, 255, 0.5);
+          -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+          border-radius: 20px;
+          padding: 20px;
+          box-sizing: border-box;
+        }
+      </style>
+      <s_guest>
+        <div class="guest_book">
+          <div id="background">
+            <div class="sun-gradient"></div>
+            <canvas id="starfield" class="starfield"></canvas>
+            <div class="top-gradient"></div>
+          </div>
+          <div class="section">
+            <div class="container">
+              <div class="header">
+                Guest Book
+                <span>블로그에 방문해주셔서 감사합니다.<br>자유롭게 댓글을 달아주세요 🌌</span>
+              </div>
+              <div class="guestbook">
+                <s_guest_input_form>
+                  <s_guest_member>
+                    <s_guest_form>
+                      <div class="guestWrite uk-grid" uk-grid>
+                        <div class="uk-width-1-1">
+                          <textarea class="uk-textarea" name="[##_guest_textarea_body_##]" cols="50" rows="5"
+                            aria-label="Textarea"></textarea>
+                        </div>
+                        <div class="uk-width-1-4@s">
+                          <div class="uk-inline">
+                            <span class="uk-form-icon" uk-icon="icon: user"></span>
+                            <input class="uk-input" type="text" aria-label="Not clickable icon" placeholder="이름"
+                              name="[##_guest_input_name_##]" value="[##_guest_name_##]">
+                          </div>
+                        </div>
+                        <div class="uk-width-1-4@s">
+                          <div class="uk-inline">
+                            <span class="uk-form-icon" uk-icon="icon: grid"></span>
+                            <input class="uk-input" type="password" maxlength="8" name="[##_guest_input_password_##]"
+                              value="[##_guest_password_##]" aria-label="Not clickable icon" placeholder="비밀번호">
+                          </div>
+                        </div>
+                        <div class="uk-width-1-2@s">
+                          <div class="uk-inline" style="width: 100%;">
+                            <button class="uk-button uk-button-default" type="submit"
+                              onclick="[##_guest_onclick_submit_##]"
+                              style="width: 100%; font-weight: 600; color: #fff; border-radius: 10px;">안부 남기기</button>
+                          </div>
+                        </div>
+                      </div>
+                    </s_guest_form>
+                  </s_guest_member>
+                </s_guest_input_form>
+                <s_guest_container>
+                  <div class="guestList" style="margin-top: 20px;">
+                    <ol>
+                      <s_guest_rep>
+                        <li id='[##_guest_rep_id_##]'>
+                          <div class="[##_guest_rep_class_##]">
+                            <span class="name">[##_guest_rep_logo_##]</span>
+                            <span class="name">[##_guest_rep_name_##]</span>
+                            <span class="date"> [##_guest_rep_date_##]</span>
+                            <span class="control">
+                              <a href="#" onclick="[##_guest_rep_onclick_delete_##]">MODIFY/DELETE</a>
+                              <a href="#" onclick="[##_guest_rep_onclick_reply_##]">REPLY</a>
+                            </span>
+                            <p>[##_guest_rep_desc_##]</p>
+                          </div>
+                          <s_guest_reply_container>
+                            <ul>
+                              <s_guest_reply_rep>
+                              <li id='[##_guest_rep_id_##]'>
+                                <div class="[##_guest_rep_class_##]">
+                                  <span class="name">[##_guest_rep_name_##]</span>
+                                  <span class="date"> [##_guest_rep_date_##]</span>
+                                  <span class="control">
+                                    <a href="#" onclick="[##_guest_rep_onclick_delete_##]">MODIFY/DELETE </a>
+                                  </span>
+                                  <p>[##_guest_rep_desc_##]</p>
+                                </div>
+                              </li>
+                              </s_guest_reply_rep>
+                            </ul>
+                          </s_guest_reply_container>
+                        </li>
+                      </s_guest_rep>
+                    </ol>
+                  </div>
+                </s_guest_container>
+              </div>
+            </div>
+          </div>
+          <script>
+            const starfield = document.getElementById('starfield');
+            const c = starfield.getContext('2d');
+
+            let resizerTimer;
+
+            let windowWidth = window.innerWidth;
+            let windowHeight = window.innerHeight;
+
+            starfield.width = windowWidth;
+            starfield.height = windowHeight;
+
+            let stars = [];
+            let initAnimation = true;
+
+            let STARS_NUMBER = windowWidth / 4;
+
+            const MIN_STAR_OPACITY = 4;
+            const MAX_STAR_OPACITY = 10;
+
+            function getStarsTypes(windowWidth, windowHeight) {
+              return [
+                {
+                  name: 'left',
+                  amount: 0.2,
+                  minSize: 2,
+                  maxSize: 2.5,
+                  minSpeed: 10,
+                  maxSpeed: 20,
+                  direction: -1,
+                  startX: -2 * windowWidth,
+                  startY: windowHeight / 2,
+                  radius: 2 * windowWidth + 0.2 * windowWidth,
+                  startAngle: 70,
+                  endAngle: 110,
+                },
+                {
+                  name: 'left-small',
+                  amount: 0.2,
+                  minSize: 1,
+                  maxSize: 2,
+                  minSpeed: 10,
+                  maxSpeed: 20,
+                  direction: -1,
+                  startX: -2 * windowWidth,
+                  startY: windowHeight / 2,
+                  radius: 2 * windowWidth + 0.3 * windowWidth,
+                  startAngle: 70,
+                  endAngle: 110,
+                },
+                {
+                  name: 'left-medium',
+                  amount: 0.2,
+                  minSize: 1,
+                  maxSize: 2,
+                  minSpeed: 10,
+                  maxSpeed: 20,
+                  direction: -1,
+                  startX: -windowWidth / 2,
+                  startY: -2 * windowHeight,
+                  radius: 2 * windowHeight + 0.9 * windowHeight,
+                  startAngle: 340,
+                  endAngle: 60,
+                },
+                {
+                  name: 'left-small',
+                  amount: 0.1,
+                  minSize: 1,
+                  maxSize: 2,
+                  minSpeed: 10,
+                  maxSpeed: 20,
+                  direction: -1,
+                  startX: -windowWidth / 2 + windowWidth * 0.5,
+                  startY: -2 * windowHeight - windowHeight * 0.1,
+                  radius: 2 * windowHeight + 0.9 * windowHeight,
+                  startAngle: 340,
+                  endAngle: 60,
+                },
+                {
+                  name: 'center-small',
+                  amount: 0.3,
+                  minSize: 0.5,
+                  maxSize: 1,
+                  minSpeed: 10,
+                  maxSpeed: 20,
+                  direction: -1,
+                  startX: windowWidth / 2,
+                  startY: -2 * windowHeight,
+                  radius: 2 * windowHeight + 0.8 * windowHeight,
+                  startAngle: 340,
+                  endAngle: 30,
+
+                },
+                {
+                  name: 'right-big',
+                  amount: 0.1,
+                  minSize: 1,
+                  maxSize: 3,
+                  minSpeed: 10,
+                  maxSpeed: 20,
+                  direction: 1,
+                  startX: 2 * windowWidth,
+                  startY: windowHeight / 2,
+                  radius: 2 * windowWidth - 0.9 * windowWidth,
+                  startAngle: 290,
+                  endAngle: 230,
+                },
+                {
+                  name: 'right-small',
+                  amount: 0.1,
+                  minSize: 1,
+                  maxSize: 2,
+                  minSpeed: 10,
+                  maxSpeed: 20,
+                  direction: 1,
+                  startX: 2 * windowWidth,
+                  startY: windowHeight / 2,
+                  radius: 2 * windowWidth - 0.7 * windowWidth,
+                  startAngle: 290,
+                  endAngle: 230,
+                },
+                {
+                  name: 'right-center',
+                  amount: 0.3,
+                  minSize: 1,
+                  maxSize: 2,
+                  minSpeed: 10,
+                  maxSpeed: 20,
+                  direction: 1,
+                  startX: 2 * windowWidth,
+                  startY: windowHeight / 2,
+                  radius: 2 * windowWidth - 0.5 * windowWidth,
+                  startAngle: 290,
+                  endAngle: 230,
+                },
+              ];
+
+            }
+
+            // function getStarsTypes(windowWidth, windowHeight) {
+            //   return [
+            //     {
+            //       name: 'left',
+            //       amount: 0.01,
+            //       minSize: 2,
+            //       maxSize: 2.5,
+            //       minSpeed: 10,
+            //       maxSpeed: 20,
+            //       direction: -1,
+            //       startX: -2 * windowWidth,
+            //       startY: windowHeight/2,
+            //       radius: 2 * windowWidth + 0.2 * windowWidth,
+            //       startAngle: 70,
+            //       endAngle: 110, 
+            //     }
+            //   ]
+            // }
+
+
+            function Star(x, y, radius, speed, size, opacity, direction, startAngle, endAngle, maxSize, defaultStartAngle) {
+              this.x = x;
+              this.y = y;
+              this.radius = radius;
+              this.startX = x;
+              this.startY = y;
+              this.speed = speed;
+              this.size = size;
+              this.defaultSize = size;
+              this.opacity = opacity;
+              this.age = 0;
+              this.defaultOpacity = opacity;
+              this.direction = -direction;
+              this.startAngle = startAngle;
+              this.endAngle = endAngle;
+              this.angleReachZero = false;
+              this.maxSize = maxSize;
+              this.defaultStartAngle = defaultStartAngle;
+              this.updateCalls = 0;
+            }
+
+            Star.prototype.update = function () {
+              this.age += this.direction * this.speed;
+              this.updateCalls += 1;
+
+              let radAngle = (this.age * Math.PI + this.startAngle * Math.PI) / 180;
+              let sin = Math.sin(radAngle);
+              let cos = Math.cos(radAngle);
+
+              this.x = this.radius * sin + this.startX;
+              this.y = this.radius * cos + this.startY;
+
+
+              if (this.direction > 0) {
+                if (this.startAngle < this.endAngle) {
+                  if (getAngle(sin, cos) > this.endAngle) {
+                    this.age = 0;
+                    this.startAngle = this.defaultStartAngle;
+                    this.size = this.defaultSize;
+                  }
+                } else {
+                  if (getAngle(sin, cos) < this.endAngle) {
+                    this.angleReachZero = true;
+                  }
+                  if (this.angleReachZero && getAngle(sin, cos) > this.endAngle) {
+                    this.age = 0;
+                    this.startAngle = this.defaultStartAngle;
+                    this.size = this.defaultSize;
+                    this.angleReachZero = false;
+                  }
+                }
+              } else {
+                if (this.startAngle > this.endAngle) {
+                  if (getAngle(sin, cos) < this.endAngle) {
+                    this.age = 0;
+                    this.startAngle = this.defaultStartAngle;
+                    this.size = this.defaultSize;
+                  }
+                } else {
+                  if (getAngle(sin, cos) > this.endAngle) {
+                    this.angleReachZero = true;
+                  }
+                  if (this.angleReachZero && getAngle(sin, cos) < this.endAngle) {
+                    this.age = 0;
+                    this.startAngle = this.defaultStartAngle;
+                    this.size = this.defaultSize;
+                    this.angleReachZero = false;
+                  }
+                }
+              }
+
+              if (this.y < windowHeight / 2 && this.size < this.maxSize + 1) {
+                this.size += this.speed / 100;
+              }
+
+              if (this.y > windowHeight / 2 && this.size > this.minSize * 0.1) {
+                this.size -= this.speed;
+              }
+
+              drawStar(this.x, this.y, this.size, this.opacity);
+            }
+
+            function createAllStars() {
+              let starsTypes = getStarsTypes(windowWidth, windowHeight);
+              for (i = 0; i < starsTypes.length; i++) {
+                for (j = 0; j < STARS_NUMBER * starsTypes[i].amount; j++) {
+                  createStar(starsTypes[i])
+                }
+              }
+
+              // Initiate star animation
+              if (initAnimation) {
+                drawAndUpdate();
+              }
+
+            }
+            createAllStars();
+
+
+
+            function createStar(star) {
+              let startX = getRandomIntInclusive(star.startX - windowWidth * 0.2, star.startX + windowWidth * 0.2);
+              let startY = getRandomIntInclusive(star.startY - windowHeight * 0.2, star.startY + windowHeight * 0.2);
+              let direction = star.direction;
+
+              let radius = getRandomIntInclusive(star.radius, star.radius);
+              let startAngle = getRandomAngle(star.startAngle, star.endAngle);
+              let endAngle = star.endAngle;
+              let speed = getRandomIntInclusive(star.minSpeed, star.maxSpeed) * 0.0003;
+              let size = getRandomIntInclusive(star.minSize, star.maxSize);
+              let opacity = getRandomIntInclusive(MIN_STAR_OPACITY, MAX_STAR_OPACITY) * 0.1;
+
+              stars.push(
+                new Star(
+                  startX,
+                  startY,
+                  radius,
+                  speed,
+                  size,
+                  opacity,
+                  direction,
+                  startAngle,
+                  endAngle,
+                  star.maxSize,
+                  star.startAngle
+                )
+              );
+            }
+
+            function drawStar(x, y, size, opacity) {
+              c.beginPath();
+              c.arc(x, y, size, 0, Math.PI * 2, false);
+              c.closePath();
+
+              c.fillStyle = `rgba(155, 165, 193, ${opacity})`;
+              c.fill();
+            }
+
+            function drawAndUpdate() {
+              // Clear window
+              c.clearRect(0, 0, windowWidth, windowHeight);
+
+              // var txt = JSON.stringify(stars[0], null, '\t');
+              // var lines = txt.split('\n')
+              // for (var i = 0; i<lines.length; i++)
+              //   c.fillText(lines[i], 10, 66 + (i*12) );
+
+
+              //Update stars position
+              if (stars.length > 0) {
+                stars.forEach(el => {
+                  el.update();
+                });
+                window.requestAnimationFrame(drawAndUpdate);
+              }
+            }
+
+            let resetStars = function () {
+              initAnimation = false;
+              stars = [];
+              windowWidth = window.innerWidth;
+              windowHeight = window.innerHeight;
+              starfield.width = windowWidth;
+              starfield.height = windowHeight;
+              c.clearRect(0, 0, windowWidth, windowHeight);
+              STARS_NUMBER = windowWidth / 4;
+              createAllStars();
+            }
+
+            // var myEfficientFn = debounce(function() {
+            // 	resetStars()
+            // }, 1000);
+
+            window.addEventListener('resize', resetStars);
+
+            // Helpers
+            function getRandomIntInclusive(min, max) {
+              min = Math.ceil(min);
+              max = Math.floor(max);
+
+              return Math.floor(Math.random() * (max - min + 1) + min)
+            }
+
+            function getAngle(sin, cos) {
+
+              if (sin > 0 && cos > 0) {
+                return Math.asin(sin) * 180 / Math.PI;
+              }
+              if (sin > 0 && cos < 0) {
+                return 180 - Math.asin(sin) * 180 / Math.PI;
+              }
+              if (sin < 0 && cos < 0) {
+                return 180 - Math.asin(sin) * 180 / Math.PI;
+              }
+              if (sin < 0 && cos > 0) {
+                return 360 + Math.asin(sin) * 180 / Math.PI;
+              }
+            }
+
+            function getRandomAngle(startAngle, endAngle) {
+
+              if (endAngle - startAngle < 0 && endAngle < 180) {
+                let randomAngle = getRandomIntInclusive(0, 360 - startAngle + endAngle)
+                return startAngle + randomAngle > 360 ? getRandomIntInclusive(0, endAngle) : startAngle + randomAngle;
+              }
+              if (endAngle - startAngle < 0) {
+                return getRandomIntInclusive(endAngle, startAngle);
+              }
+
+              return getRandomIntInclusive(startAngle, endAngle);
+            }
+
+            function debounce(func, wait, immediate) {
+              var timeout;
+              return function () {
+                var context = this, args = arguments;
+                var later = function () {
+                  timeout = null;
+                  if (!immediate) func.apply(context, args);
+                };
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+              };
+            };
+
+          </script>
+        </div>
+      </s_guest>

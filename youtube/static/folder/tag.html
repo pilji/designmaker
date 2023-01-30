@@ -1,0 +1,61 @@
+<div class="tag">
+  <style>
+    .tag {
+      position: fixed;
+      top: var(--vlo-header-height);
+      left: var(--vlo-sidebar-width);
+      height: var(--vlo-tag-height);
+      width: calc(100% - var(--vlo-sidebar-width));
+      display: flex;
+      align-items: center;
+      transition: all 1s;
+      padding: 0 16px;
+      white-space: nowrap;
+      overflow-x: auto;
+      background-color: #fff;
+      z-index: 50;
+    }
+
+    .tag ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .tag li {
+      display: inline-block;
+      padding: 0 5px;
+    }
+
+    .tag li:first-of-type {
+      padding-left: 0px;
+    }
+
+    .tag li a {
+      display: inline-block;
+      padding: 5px 8px;
+      background-color: #f3f3f3;
+      border-radius: 5px;
+      text-decoration: none;
+      color: var(--vlo-black);
+    }
+
+    .tag li a:hover {
+      background-color: #ececec;
+    }
+
+    @media (width<900px) {
+      .tag {
+        position: fixed;
+        left: 0;
+        width: calc(100%);
+      }
+    }
+  </style>
+  <ul>
+    <s_tag_rep>
+      <li>
+        <a href="[##_tag_link_##]" class="[##_tag_class_##]">[##_tag_name_##]</a>
+      </li>
+    </s_tag_rep>
+  </ul>
+</div>

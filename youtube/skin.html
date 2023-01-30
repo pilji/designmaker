@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[##_page_title_##]</title>
+
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/64b7068c33.js" crossorigin="anonymous"></script>
+  <!-- animate -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <!-- swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body id='[##_body_id_##]' class="">
+  <div class="vlo">
+    <div class="loader" style="display: none;">
+      <script>
+        $(document).ready(function () {
+          $('#uikit_css').load("static/uikit/uikitcss.min.html");
+          $('#uikit_js').load("static/uikit/uikitjs.min.html");
+          $('#uikit_icon').load("static/uikit/uikit-icons.min.html");
+          $('#header').load("static/folder/header.html");
+          $('#aside').load("static/folder/aside.html");
+          $('#tag').load("static/folder/tag.html");
+          $('#cover').load("static/folder/cover.html");
+          $('#guestbook').load("static/folder/guestbook.html");
+        });
+      </script>
+
+      <div id="uikit_css"></div>
+      <div id="uikit_js"></div>
+      <div id="uikit_icon"></div>
+    </div>
+    <div id="header"></div>
+    <div id="tag"></div>
+    <div id="aside"></div>
+    <div id="cover"></div>
+    <div id="guestbook"></div>
+  </div>
+</body>
+
+</html>
